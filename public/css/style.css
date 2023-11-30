@@ -1,0 +1,550 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+
+
+
+
+
+*::selection {
+    background-color: #FF9138; /* farba pozadia pre zvýraznený text */
+    color: white; /* farba textu pre zvýraznený text */
+}
+
+.textOpacnyHighlight::selection {
+    color: white;
+    background-color: #3A3E4B;
+}
+
+
+body {
+    background: #3A3E4B;
+    padding-top:90px;
+}
+
+.brand {
+    color: #FF9138;
+}
+
+.nav-link {
+    border-top: 5px solid transparent;
+    transform: translateY(-4px);
+}
+
+.nav-link:hover {
+    border-top: 5px solid #ff9138;
+    transform: translateY(-4px);
+}
+
+.nav-link.active {
+    border-top: 5px solid #ff9138;
+    transform: translateY(-4px);
+}
+
+#top {
+    position: absolute;
+    left:0;
+    top:0;
+    height:15vh;
+}
+
+
+nav {
+    background-color: #3A3E4B;
+}
+
+
+.prihlasenie_button {
+    background-color: #FF9138;
+    border-radius: 24px 0 0 24px;
+    align-items: center; /* centruje obsah vertikálne */
+    justify-content: center; /* centruje obsah horizontálne */
+    border: none;
+    padding: 0.6rem 2rem 0.6rem 2.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+.prihlasenie_button:hover,
+.prihlasenie_button:hover .bi{
+    background-color: white;
+    color: #FF9138;
+}
+
+
+.navbar-toggler {
+    border: 3px solid #FF9138;
+    color: white;
+    font-size: 2rem;
+}
+
+.navbar-toggler-icon {
+    color: white;
+}
+
+.ikonkaMenu {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+#nav-length {
+    width: 90%;
+}
+
+
+.bocneMenucko {
+    z-index: 1;
+}
+
+.navbar {
+    padding-top:0;
+    padding-bottom: 0;
+}
+
+
+/* body section */
+.icon-height {
+    height: 28px;
+    width: 28px;
+}
+
+.icon-container {
+    background: #FF9138;
+}
+
+.dark-background {
+    background: #2b3944;
+}
+#socialWrap {
+    border-radius: 0 24px 24px 0;
+}
+
+
+#uvodna_obrazovka {
+    background-image: url("/images/uvodna_obrazovka_pozadie.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    padding-bottom: 14rem;
+    padding-top: 14rem;
+    background-position: center center; /* zmení smer priblíženia na spodnú stranu obrázku */
+}
+
+#uvodna_obrazovka::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;  /* Nižšia hodnota ako text */
+
+}
+
+/* Aby bol text nad tmavým prekryvom */
+#uvodna_obrazovka > * {
+    z-index: 2;  /* Vyššia hodnota ako prekryv */
+    position: relative;  /* Aby bol z-index aplikovaný správne */
+}
+
+#uvodna_obrazovka .container-fluid {
+    max-width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logoVlavoHore {
+    margin-left: 1.3rem;
+}
+
+.navbar-toggler {
+    margin-right: 1.3rem;
+}
+
+
+
+
+.custom-container {
+    margin: 0 auto;
+    max-width: 70vw;
+}
+
+@media (max-width: 992px) {
+    .custom-container {
+        max-width: 100%;
+    }
+}
+
+.custom-row {
+    margin-bottom: 2rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    background-color: #2b3944;
+    border-radius: 24px;
+}
+
+.custom-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 24px;
+}
+
+.testDiv {
+
+    background-color: #fc3c3c;
+    height: 10vh;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width : 992px) {
+    #nav-length {
+        width: 100%;
+    }
+
+    .border-hover {
+        border-top: 0;
+    }
+
+    .border-hover:hover {
+        border-top: 0;
+    }
+
+    #sign-in {
+        border-radius: 50px;
+    }
+
+    .bocneMenucko {
+        visibility: hidden;
+    }
+
+    .sirkaIkoniekVNave {
+        width: 70vw;
+    }
+
+    .ikonkaMenu {
+        font-size: 1.6rem;
+    }
+
+    .prihlasenie_button {
+        width:70%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 24px;
+        margin-bottom: 2rem;
+    }
+
+    .moj_navbar {
+        box-shadow: 0 40px 80px 0 rgb(0, 0, 0);
+    }
+
+    .fixed-top {
+        padding-bottom: 1.5rem;
+    }
+
+}
+
+.container-fluid {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+footer {
+    padding-top: 2.5rem;
+    background-color: #FF9138;
+
+}
+
+
+.registraciaDiv {
+    border-radius: 24px;
+    background-color: rgba(43, 57, 68, 0.78);
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+
+
+.form-control {
+    margin-bottom: 1rem;
+    border: none;
+    background-color: white;
+    color: #3A3E4B;
+    width: 100%;
+    border-radius: 16px;
+}
+
+.form-check-input:after {
+    border-color: #FF9138;
+    color: #FF9138;
+}
+
+
+
+.form-check-input:active {
+    color: #FF9138;
+    border-color: #FF9138;
+}
+
+
+.tlacitkoRegistrovat {
+    margin-top: 1rem;
+    background-color: #FF9138;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 1.3rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    border-radius: 16px;
+}
+
+.tlacitkoRegistrovat:hover {
+    background-color: white;
+    color: #FF9138;
+}
+
+
+.formular_sekcia {
+    margin: 0;
+    height: 85vh; /* môžete experimentovať s hodnotou výšky, ak chcete dosiahnuť požadovaný efekt */
+    background-image: url("/images/viadukt.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom; /* zmení smer priblíženia na spodnú stranu obrázku */
+    position: relative;
+}
+
+
+
+
+/*
+    STYLY PRE CESTA.html
+*/
+
+
+
+.obrazokCesty {
+    border-radius: 24px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+
+.indicator-yes {
+    color: #14e314;
+}
+
+.indicator-no {
+    color: #fc3c3c;
+}
+
+.pravaStranaAtributy {
+    display: grid;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 992px) {
+    .lavaStranaAtributy {
+        padding-right: 2rem;
+    }
+    .pravaStranaAtributy {
+        padding-left: 2rem;
+        margin-top: 0;
+    }
+}
+
+.zaboleneRohy {
+    background-color: #2b3944;
+    border-radius: 24px;
+}
+
+.lavaStranaAtributy {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.riadokAtribut p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-left: 1.7rem;
+    margin-right: 1.7rem;
+}
+
+.ukazatel {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: 5px; /* Výška posuvníka */
+    background-color: #ddd; /* Farba pravej časti posuvníka */
+    border-radius: 5px; /* Zaoblenie rohov */
+}
+
+.slider-value {
+    position: absolute;
+    top: 5px; /* Posun nad posuvník */
+    left: 30%; /* Zmena na aktuálnu hodnotu trasy v percentách */
+    color: #FF9138;
+    font-weight: bold;
+}
+
+.slider-fill {
+    height: 100%;
+    width: 50%; /* Zmena na aktuálnu hodnotu trasy v percentách */
+    background-color: #FF9138; /* Farba ľavej časti posuvníka */
+    border-radius: 5px; /* Zaoblenie rohov */
+}
+
+
+
+.dlzkaTrasy {
+    width: 35%;
+}
+
+.stavCesty {
+    width: 70%;
+}
+
+.atributVytazenosti {
+    border-radius: 24px;
+    background-color: #FF9138;
+    width: fit-content;
+    margin-left: 1rem;
+    padding: 0.3rem 1.5rem 0.3rem 1.5rem;
+}
+
+
+
+
+.cesta_sekcia {
+    padding: 0 10% 5% 10%;
+    margin: 0 0 0 1.5rem;
+}
+
+
+@media (max-width: 992px) {
+    .cesta_sekcia {
+        padding: 0 0 5% 0;
+        width: 100vw;
+    }
+}
+
+/* Vlastné CSS pre dodatočné štylizovanie */
+.comment-section {
+    background-color: #f8f9fa; /* Svetlý odtieň pre pozadie komentárov */
+    border-radius: 5px; /* Zaoblené rohy pre sekciu komentárov */
+    padding: 20px; /* Odstup obsahu komentárov od okrajov sekcie */
+}
+
+.comment {
+    border-bottom: 1px solid #dee2e6; /* Oddelovač medzi komentármi */
+    padding-bottom: 15px; /* Odstup medzi komentárom a oddelovačom */
+    margin-bottom: 15px; /* Odstup medzi oddelovačom a nasledujúcim komentárom */
+}
+
+.comment:last-child {
+    border-bottom: none; /* Odstránenie oddelovača od posledného komentára */
+}
+
+link-muted {
+    color: #aaa;
+}
+
+.link-muted:hover {
+    color: #1266f1;
+}
+
+.komentare {
+    margin: 0;
+    background-color: white;
+
+}
+
+.komentare * {
+    color: #3A3E4B;
+}
+
+.mapaStlpec {
+    background-color: red;
+
+}
+
+iframe {
+    z-index: 100;
+}
+
+
+
+.ikonkaSrdiecko {
+    color: #3A3E4B;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.link-muted:hover {
+    color: #FF9138;
+}
+
+.link-muted:hover .ikonkaReply {
+    color: #FF9138;
+}
+
+
+.link-muted:hover {
+    color: #FF9138;
+}
+
+.link-muted:hover .ikonkaSrdiecko {
+    color: #FF9138;
+}
+
+
+
+
+
+
+
+
