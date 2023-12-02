@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 <section id="uvodna_obrazovka_sekcia">
     <div class="bocneMenucko d-flex position-fixed">
         <div class="d-flex flex-column icon-container p-2" id="socialWrap">

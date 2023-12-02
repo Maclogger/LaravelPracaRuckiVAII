@@ -9,31 +9,32 @@
                     <div class="registraciaDiv my-5">
                         <div class="card-body">
                             <h2 class="card-title text-center mb-4 fw-bold">Registrácia užívateľa</h2>
-                            <form>
+                            <form name="registruj" id="registruj" method="post" action="{{  url('/registruj')  }}">
+                                @csrf
                                 <div class="row">
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label for="meno">Meno:</label>
-                                        <input type="text" class="form-control input-registracie" id="meno" placeholder="Zadajte meno" required>
+                                        <input type="text" class="form-control input-registracie" id="meno" name="meno" placeholder="Zadajte meno" required>
                                     </div>
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label for="priezvisko">Priezvisko:</label>
-                                        <input type="text" class="form-control input-registracie" id="priezvisko" placeholder="Zadajte priezvisko" required>
+                                        <input type="text" class="form-control input-registracie" id="priezvisko" name="priezvisko" placeholder="Zadajte priezvisko" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email">Emailová adresa:</label>
-                                    <input type="email" class="form-control input-registracie" id="email" placeholder="Zadajte email" required>
+                                    <input type="email" class="form-control input-registracie" id="email" name="email" placeholder="Zadajte email" required>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-md-6 col-sm-12">
-                                        <label for="password">Heslo:</label>
-                                        <input type="password" class="form-control input-registracie" id="password" placeholder="Zadajte heslo" required>
+                                        <label for="heslo">Heslo:</label>
+                                        <input type="password" class="form-control input-registracie" name="heslo" id="heslo" placeholder="Zadajte heslo" required>
                                     </div>
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label for="password2">Heslo (kontrola):</label>
-                                        <input type="password" class="form-control input-registracie" id="password2" placeholder="Zadajte heslo (kontrola)" required>
+                                        <input type="password" class="form-control input-registracie" id="password2" placeholder="Zadajte heslo (kontrola)">
                                     </div>
                                 </div>
 
