@@ -62,7 +62,7 @@
                         </div>
                     </li>
                     <li class="nav-item d-flex align-items-center">
-                        <a href="#" class="btn prihlasenie_button">
+                        <a href="/prihlasenie" class="btn prihlasenie_button">
                             <i class="bi bi-person-circle"></i>
                             Prihlásenie
                         </a>

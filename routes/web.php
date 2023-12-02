@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,6 @@ Route::get('/cesta', function () {
 Route::get('/registracia', [RegisterController::class, 'index'])->name('registracia');
 Route::post('/registruj', [RegisterController::class, 'registruj']);
 
-
+Route::get('/prihlasenie', [LoginController::class, 'index']);
+Route::post('/prihlas', [LoginController::class, 'prihlas']);
 

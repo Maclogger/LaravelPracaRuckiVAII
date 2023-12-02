@@ -2,7 +2,6 @@
 
 @section('content')
 <section id="registracia_sekcia">
-
         <div class="formular_sekcia row d-flex align-items-center justify-content-center bg-cover bg-center">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-8 col-lg-6">

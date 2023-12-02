@@ -27,14 +27,14 @@ class RegisterController extends Controller
             'heslo' => 'required|min:4',
         ]);
 
-        /*// Hashovanie hesla
-        $validatedData['heslo'] = Hash::make($validatedData['heslo']);*/
+
+
 
         $uzivatel = new Uzivatel();
         $uzivatel->meno = $validatedData['meno'];
         $uzivatel->priezvisko = $validatedData['priezvisko'];
         $uzivatel->email = $validatedData['email'];
-        $uzivatel->heslo = $validatedData['heslo'];
+        $uzivatel->heslo = Hash::make($validatedData['heslo']); // Hashování hesla
         $uzivatel->save();
         return redirect('/')->with('status', 'Použivateľ bol úspešne zaregistrovaný.');
     }
