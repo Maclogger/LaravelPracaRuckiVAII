@@ -27,9 +27,6 @@ class RegisterController extends Controller
             'heslo' => 'required|min:4',
         ]);
 
-
-
-
         $uzivatel = new Uzivatel();
         $uzivatel->meno = $validatedData['meno'];
         $uzivatel->priezvisko = $validatedData['priezvisko'];

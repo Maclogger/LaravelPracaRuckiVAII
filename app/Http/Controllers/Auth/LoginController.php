@@ -15,7 +15,6 @@ class LoginController extends Controller
 
     public function prihlas(Request $request)
     {
-
         // Validácia dát
         $validatedData = $request->validate([
             'email' => 'required|email',
@@ -27,13 +26,18 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             // Přesměrování na zamýšlenou stránku nebo na výchozí domovskou stránku
-            return redirect()->intended('/')->with(["prihlaseny" => "Užívateľ úspešne prihlásený."]);
+            return redirect()->intended('/')->with(["status" => "Prihlásenie prebehlo úspešne. :D"]);
         }
 
         // Pokud přihlášení selhalo, vrátit zpět s chybou
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Email alebo heslo je nesprávne. :(',
         ]);
 
+    }
+
+    public function odhlas() {
+        Auth::logout();
+        return redirect('/')->with('status', 'Použivateľ bol úspešne odhlásený.');
     }
 }

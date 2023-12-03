@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="{{ asset('js/script.js') }}"></script>
     <title>TOP Cesty</title>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#yourNavID">
@@ -38,9 +39,11 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link border-hover py-3 text-white">Novinky</a>
                     </li>
+                    @guest
                     <li class="nav-item">
                         <a href="{{ route('registracia') }}" data-content="registracia_sekcia" class="nav-link border-hover py-3 text-white">Registrácia</a>
                     </li>
+                    @endguest
                     <li class="nav-item d-lg-none">
                         <div class="row sirkaIkoniekVNave mx-auto pb-3">
 
@@ -61,12 +64,22 @@
 
                         </div>
                     </li>
+                    @guest
                     <li class="nav-item d-flex align-items-center">
-                        <a href="/prihlasenie" class="btn prihlasenie_button">
+                        <a href="{{ route('prihlasenie') }}" class="btn prihlasenie_button">
                             <i class="bi bi-person-circle"></i>
                             Prihlásenie
                         </a>
                     </li>
+                    @endguest
+                    @auth
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="/profil" class="btn prihlasenie_button">
+                                <i class="bi bi-person-circle"></i>
+                                {{ Auth::user()->meno }} {{ Auth::user()->priezvisko }}
+                            </a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -91,12 +104,27 @@
 </div>
 
 
+@if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@elseif($errors->any())
+    <div class="alert alert-danger">
+        <ul class="error_ul">
+            @foreach ($errors->all() as $error)
+                <li class="error_li"><i class="bi bi-exclamation-octagon-fill"></i> {{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
 <div class="content">
     @yield('content') {{-- Obsah stránky --}}
 </div>
 
-
-<footer class="text-center text-white py-3 footer">
+<div class="empty_div"></div>
+<footer class="text-center text-white py-3 mt-3 footer">
     <!-- Copyright -->
     <p class="mb-0 textOpacnyHighlight">&copy; 2023 TOPCesty.sk | Všetky práva vyhradené.</p>
 </footer>

@@ -170,9 +170,6 @@ nav {
     margin-right: 1.3rem;
 }
 
-
-
-
 .custom-container {
     margin: 0 auto;
     max-width: 70vw;
@@ -281,9 +278,16 @@ nav {
 footer {
     padding-top: 2.5rem;
     background-color: #FF9138;
-
+    position: fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    text-align: center;
 }
 
+.empty_div {
+    margin-top: 3rem;
+}
 
 .registraciaDiv {
     border-radius: 24px;
@@ -543,8 +547,139 @@ a {
 
 
 
+/* Chybový stav */
+.error-alert {
+    background-color: #ff5c5c;
+    color: black;
+}
+
+/* Úspešný stav */
+.success-alert {
+    background-color: #73cb73;
+}
+
+/* Všeobecné štýly pre alert */
+
+.error_ul {
+    padding: 0;
+}
+
+.error_ul {
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 0;
+    background-color: #FF9138;
+}
+
+
+.error_li {
+    color: white;
+    font-size: large;
+}
+
+.alert {
+    margin: 0;
+    padding: 0;
+}
+
+.alert-success {
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 0;
+    background-color: white;
+    font-size: large;
+}
+
+
+.polickoNaZmenuUdaju {
+    border-radius: 12px;
+    color:black;
+    padding: 0.3rem;
+}
+
+.tlacitko_profilove {
+    background-color: #FF9138;
+    color: white;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    width: 100%;
+}
+
+.tlacitko_profilove:hover {
+    background-color: white;
+    color: #FF9138;
+}
+
+.profilove_informacie {
+    background-color: #2b3944;
+    border-radius: 24px;
+    padding: 2rem;
+}
+
+
+.moj_row {
+    margin:0;
+    padding: 0;
+}
 
 
 
+/*----------------------------------------*/
+/* Štýl modálneho okna */
+.modal {
+    display: none; /* Skryté pred aktiváciou */
+    position: fixed;
+    z-index: 1; /* Zostane nad ostatným obsahom */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Povolí posunutie, ak je obsah dlhší */
+}
 
+
+/* Štýl zatváracieho tlačidla */
+
+.ciernyText {
+    color: black;
+}
+
+.zabolenyRoh {
+    border-radius: 8px;
+}
+
+.profilove_editacne_informacie {
+    background-color: #FF9138;
+    border-radius: 24px;
+    padding: 2rem;
+    margin-top: 5rem;
+}
+
+.tlacitko_editacia {
+    background-color: #3A3E4B;
+    color: white;
+}
+
+.vacsi_text {
+    font-size: 1.2rem;
+}
+
+
+.input-group {
+    display: flex;
+    align-items: center; /* Zarovná položky vertikálne */
+    margin-bottom: 10px; /* Prípadné odsadenie medzi riadkami */
+}
+
+.input-group label {
+    flex: 0 0 auto; /* Nepovolí labelu rásť a zmenšovať sa */
+    margin-right: 10px; /* Odsadenie medzi labelom a inputom */
+}
+
+.input-group input {
+    flex: 1 1 auto; /* Input zaberá zvyšok priestoru */
+    margin-top: 0; /* Odstránenie margin-top, ak je potrebné */
+}
 

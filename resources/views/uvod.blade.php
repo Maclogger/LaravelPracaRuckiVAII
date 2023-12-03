@@ -2,17 +2,7 @@
 
 @section('content')
 
-@if(session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-@endif
 
-@if(session('prihlaseny'))
-    <div class="alert alert-success">
-        {{ session('prihlaseny') }}
-    </div>
-@endif
 
 <section id="uvodna_obrazovka_sekcia">
     <div class="bocneMenucko d-flex position-fixed">
