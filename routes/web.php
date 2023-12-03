@@ -25,7 +25,8 @@ Route::get('/odhlas', [LoginController::class, 'odhlas']);
 
 Route::get('/profil', [ProfilController::class, 'index']);
 
-
+Route::post('/upravUdaje', [ProfilController::class, 'upravUdaje']);
+Route::post('/zmenHeslo', [ProfilController::class, 'zmenHeslo']);
 
 
 

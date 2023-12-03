@@ -23,8 +23,8 @@
             <div class="row justify-content-center mt-4 moj_row">
                 <div class="col-12 col-md-6 col-lg-4 profilove_editacne_informacie">
                     <form name="upravUdaje" id="upravUdaje" method="post" action="{{  url('/upravUdaje')  }}">
+                        @csrf
                         <h2 class="text-center mt-1 mb-4">Úprava údajov</h2>
-
                         <div class="input-group">
                             <label class="vacsi_text" for="meno"><strong>Meno:</strong></label>
                             <input class="ciernyText zabolenyRoh" type="text" id="meno" name="meno" value="{{ Auth::user()->meno }}">
@@ -52,7 +52,8 @@
         <div class="row moj_row">
             <div class="row justify-content-center mt-4 moj_row">
                 <div class="col-12 col-md-6 col-lg-4 profilove_editacne_informacie">
-                    <form>
+                    <form name="zmenHeslo" id="zmenHeslo" method="post" action="{{  url('/zmenHeslo')  }}">
+                        @csrf
                         <h2 class="text-center mt-1 mb-4">Zmena hesla</h2>
 
                         <div class="input-group">
