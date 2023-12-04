@@ -69,6 +69,4 @@ class ProfilController extends Controller
         // Presmerovanie s úspešnou správou
         return back()->with('status', 'Heslo bolo úspešne zmenené.');
     }
-
-
 }

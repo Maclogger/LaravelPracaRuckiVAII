@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Uzivatel;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -33,6 +34,10 @@ class RegisterController extends Controller
         $uzivatel->email = $validatedData['email'];
         $uzivatel->heslo = Hash::make($validatedData['heslo']); // Hashování hesla
         $uzivatel->save();
+
+        // Automatické prihlásenie užívateľa po registrácii
+        Auth::login($uzivatel);
+
         return redirect('/')->with('status', 'Použivateľ bol úspešne zaregistrovaný.');
     }
 }
