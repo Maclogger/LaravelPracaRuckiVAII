@@ -4,12 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Cesta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class CestyController extends Controller
 {
     public function index() {
-        return view("vsetky_cesty");
+        $cesty = Cesta::all(); // Získavanie všetkých cest z databázy
+        return view('vsetky_cesty', compact('cesty')); // Predanie dát do šablóny
+    }
+
+    public function indexTop() {
+        $cesty = Cesta::where('popularna_cesta', true)->get(); // Získavanie všetkých cest z databázy
+        return view('uvod', compact('cesty')); // Predanie dát do šablóny
+    }
+
+    public function indexMojeCesty() {
+        return view('moje_cesty',);
     }
 
     public function pridanie_cesty() {
@@ -21,6 +32,7 @@ class CestyController extends Controller
         // Validácia vstupných dát
         $validatedData = $request->validate([
             'nazov_cesty' => 'required|max:255', // Názov cesty je povinný a môže mať max. 255 znakov
+            'popis' => 'required|string|max:10000', // Popis cesty, je povinný a môže max. 10 000 znakov
             'obrazok_url' => 'required|image', // Obrázok je povinný, musí byť typu obrázka
             'dlzka_trasy' => 'required|numeric', // Dĺžka trasy je povinná a musí byť číselná hodnota
             'stav_cesty' => 'required|string', // Stav cesty je povinný a musí byť textový
@@ -81,6 +93,7 @@ class CestyController extends Controller
 
         $cesta = new Cesta();
         $cesta->nazov_cesty = $validatedData['nazov_cesty'];
+        $cesta->popis = $validatedData['popis'];
         $cesta->obrazok_url = $urlObrazku;
         $cesta->dlzka_trasy = $validatedData['dlzka_trasy'];
         $cesta->stav_cesty = $validatedData['stav_cesty'];
@@ -88,8 +101,10 @@ class CestyController extends Controller
         $cesta->vhodne_pre_motorky = $validatedData['vhodne_pre_motorky'];
         $cesta->vhodne_cez_zimu = $validatedData['vhodne_cez_zimu'];
         $cesta->popularna_cesta = false;
+        $cesta->author = Auth::id();
         $cesta->save();
 
         return redirect('/')->with('status', 'Cesta bola úspešne vytvorená.');
     }
+
 }

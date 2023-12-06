@@ -35,38 +35,18 @@
             </div>
         </div>
 
-        <!-- Riadok 1 -->
-        <div class="row align-items-center custom-row pt-4 pb-4">
-            <div class="col-md-6">
-                <img src="/images/pezinska_baba.jpg" alt="Obrázok 1" class="img-fluid custom-img">
+        @foreach($cesty as $cesta)
+            <div class="row align-items-center custom-row pt-4 pb-4">
+                <div class="col-md-6">
+                    <img src="{{ $cesta->obrazok_url }}" alt="{{ $cesta->nazov_cesty }}" class="img-fluid custom-img">
+                </div>
+                <div class="col-md-6 pt-4 pt-md-0">
+                    <h2> {{ $cesta->nazov_cesty }} </h2>
+                    <p> {{ $cesta->popis }} </p>
+                </div>
             </div>
-            <div class="col-md-6 pt-4 pt-md-0">
-                <h2>Pezínska Baba</h2>
-                <p>Preteknite sa so slnkom pozdĺž srdcaubijúcej trasy Pezínska Baba, kde sa zelené panoráma stretáva s modrým obzorom a motorový rev spieva pesničku slobody.</p>
-            </div>
-        </div>
+        @endforeach
 
-        <!-- Riadok 2 -->
-        <div class="row align-items-center custom-row pt-4 pb-4 clickable-div" data-content="cesta_sekcia">
-            <div class="col-md-6">
-                <img src="/images/sturec.jpg" alt="Obrázok 2" class="img-fluid custom-img">
-            </div>
-            <div class="col-md-6 pt-4 pt-md-0">
-                <h2>Šturec</h2>
-                <p>Na motorke cez Šturec sa cítite ako súčasť nádherného prírodného plátna, s vetrom, ktorý vám šepká príbehy hôr a s cestami, ktoré vás vedú k nekonečným objavom.</p>
-            </div>
-        </div>
-
-        <!-- Riadok 3 -->
-        <div class="row align-items-center custom-row pt-4 pb-4">
-            <div class="col-md-6">
-                <img src="/images/viadukt.jpeg" alt="Obrázok 3" class="img-fluid custom-img">
-            </div>
-            <div class="col-md-6 pt-4 pt-md-0">
-                <h2>Viadukt Telgrát</h2>
-                <p>Neodolateľná krása cesty vedúcej pozdĺž Viaduktu - Telgrát vás pozýva zastaviť sa a zachytiť okamih, kde sa technické dielo stretáva s prirodzenou eleganciou krajiny, vytvárajúc tak perfektnú kompozíciu pre každého fotografa.</p>
-            </div>
-        </div>
     </div>
 
 </section>

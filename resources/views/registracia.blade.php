@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label for="password2">Heslo (kontrola):</label>
-                                        <input type="password" class="form-control input-registracie" id="password2" placeholder="Zadajte heslo (kontrola)">
+                                        <input type="password" class="form-control input-registracie" id="password2" placeholder="Zadajte heslo (kontrola)" required>
                                     </div>
                                 </div>
 

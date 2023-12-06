@@ -52,6 +52,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+
+
+    try {
+
+        // Funkcia na kontrolu zhody hesiel
+        function validatePassword() {
+            var password = document.getElementById('heslo');
+            var confirm_password = document.getElementById('password2');
+
+            // Kontrola dĺžky hesla
+            if (password.value.length < 8) {
+                password.setCustomValidity('Heslo musí obsahovať minimálne 8 znakov');
+            } else {
+                password.setCustomValidity('');
+            }
+            // Kontrola zhody hesiel
+            if (password.value !== confirm_password.value) {
+                confirm_password.setCustomValidity('Heslá sa nezhodujú');
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+        // Pripojenie funkcie na udalosti
+        document.getElementById('heslo').onchange = validatePassword;
+        document.getElementById('password2').onkeyup = validatePassword;
+
+        // Funkcia na kontrolu vyplnenia požadovaných polí
+        function validateForm() {
+            var inputs = document.querySelectorAll('#registruj .input-registracie');
+            var valid = true;
+            inputs.forEach(function(input) {
+                if (!input.value) {
+                    valid = false;
+                    input.classList.add('is-invalid');
+                } else {
+                    input.classList.remove('is-invalid');
+                }
+            });
+            return valid;
+        }
+
+        // Pripojenie kontroly formulára na odoslanie
+        document.getElementById('registruj').onsubmit = function(event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        };
+
+
+    } catch (e) {
+
+    }
+
 });
 
 
@@ -60,9 +113,6 @@ function updateVytazenostValue(value) {
 }
 
 
-document.addEventListener('DOMContentLoaded', (event) => {
-
-});
 
 
 

@@ -18,6 +18,10 @@
                                     <input type="text" class="form-control input-registracie" id="nazov_cesty" name="nazov_cesty" placeholder="Zadajte názov cesty" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="popis">Popis cesty:</label>
+                                    <textarea class="form-control input-registracie" id="popis" name="popis" placeholder="Zadajte popis tejto cesty" rows="4" required></textarea>
+                                </div>
+                                <div class="form-group">
                                     <label for="obrazok_url">Obrázok: </label>
                                     <input type="file" class="form-control input-registracie" id="obrazok_url" name="obrazok_url" accept="image/png, image/jpeg, image/gif, image/jpg" required>
                                 </div>

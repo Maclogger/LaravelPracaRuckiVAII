@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nazov_cesty');
             $table->string('obrazok_url')->nullable();
+            $table->text('popis')->nullable(); // New attribute for description
             $table->integer('dlzka_trasy');
             $table->string('stav_cesty');
             $table->double('vytazenost');
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

@@ -11,6 +11,7 @@
                     <p><strong>Dátum registrácie:</strong> {{ Auth::user()->created_at }}</p>
                     <a id="editaciaBtn" class="btn mt-3 tlacitko_profilove">Upraviť údaje</a>
                     <a id="zmenaHeslaBtn" class="btn mt-3 tlacitko_profilove">Zmeniť heslo</a>
+                    <a href="/moje_cesty" class="btn mt-3 tlacitko_profilove">Moje cesty</a>
                     <a href="/odhlas" class="btn mt-3 tlacitko_profilove">Odhlásiť sa</a>
                 </div>
             </div>

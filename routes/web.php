@@ -6,11 +6,7 @@ use App\Http\Controllers\CestyController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('uvod');
-})->name('uvod');
-
-
+Route::get('/', [CestyController::class, "indexTop"])->name('uvod');
 
 Route::get('/cesta', function () {
     return view('cesta');
@@ -35,3 +31,4 @@ Route::get('/pridanie_cesty', [CestyController::class, 'pridanie_cesty'])->name(
 
 Route::post('/pridaj_cestu', [CestyController::class, 'pridaj_cestu']);
 
+Route::get('/moje_cesty', [CestyController::class, 'indexMojeCesty'])->name("moje_cesty");
