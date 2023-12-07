@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @auth
 @section('content')
+
+
+
     <section id="sekcia_profilove_informacie" class="profil">
         <div class="row moj_row">
             <div class="row justify-content-center mt-4 moj_row">
@@ -42,7 +45,7 @@
                         </div>
 
                         <button type="submit" class="btn mt-3 tlacitko_profilove tlacitko_editacia">Uložiť údaje</button>
-                        <spat class="close_profilove_informacie_js btn mt-3 tlacitko_profilove tlacitko_editacia">Zrušiť</spat>
+                        <span class="close_profilove_informacie_js btn mt-3 tlacitko_profilove tlacitko_editacia">Zrušiť</span>
                     </form>
                 </div>
             </div>

@@ -11,7 +11,7 @@ class CestyController extends Controller
 {
     public function index() {
         $cesty = Cesta::all(); // Získavanie všetkých cest z databázy
-        return view('vsetky_cesty', compact('cesty')); // Predanie dát do šablóny
+        return view('cesta.vsetky_cesty', compact('cesty')); // Predanie dát do šablóny
     }
 
     public function indexTop() {
@@ -20,11 +20,18 @@ class CestyController extends Controller
     }
 
     public function indexMojeCesty() {
-        return view('moje_cesty',);
+        $cesty = Cesta::where('author', Auth::id())->get(); // Získavanie všetkých cest z databázy
+        return view('cesta.moje_cesty', compact('cesty'));
     }
 
     public function pridanie_cesty() {
-        return view("pridanie_cesty");
+        return view("cesta.pridanie_cesty");
+    }
+
+    public function show($id)
+    {
+        $cesta = Cesta::findOrFail($id); // Nájde cestu alebo vráti 404
+        return view('cesta.show', compact('cesta'));
     }
 
     public function pridaj_cestu(Request $request) {
@@ -106,5 +113,23 @@ class CestyController extends Controller
 
         return redirect('/')->with('status', 'Cesta bola úspešne vytvorená.');
     }
+
+    public function odstran_cestu($id) {
+        $cesta = Cesta::find($id);
+        // Kontrola, či cesta existuje
+        if (!$cesta) {
+            return redirect()->back()->withErrors(['error' => 'Cesta nenájdená.']);
+        }
+        // Kontrola oprávnení - príklad, zmeniť podľa potreby
+        if (Auth::id() !== $cesta->author) {
+            return redirect()->back()->withErrors(['error' => 'Nemáte oprávnenie odstrániť túto cestu.']);
+        }
+        // Odstránenie cesty
+        $cesta->delete();
+        // Presmerovanie s oznámením o úspechu
+        return redirect()->back()->with('status', 'Cesta bola úspešne odstránená.');
+    }
+
+
 
 }

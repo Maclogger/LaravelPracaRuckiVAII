@@ -31,7 +31,7 @@
                         <a href="{{ route('uvod') }}" class="nav-link border-hover py-3 text-white">Domov</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('vsetky_cesty') }}" class="nav-link border-hover py-3 text-white">Všetky Cesty</a>
+                        <a href="{{ route('cesta.vsetky_cesty') }}" class="nav-link border-hover py-3 text-white">Všetky Cesty</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link border-hover py-3 text-white">Ostatní užívatelia</a>

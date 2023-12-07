@@ -33,18 +33,18 @@
                                     <label for="stav_cesty">Stav Cesty:</label>
                                     <select class="form-control input-registracie" id="stav_cesty" name="stav_cesty">
                                         <option value="">Vyberte stav cesty</option>
-                                        <option value="lespsej_cesty_niet">Lepšej cesty niet</option>
-                                        <option value="uzasna">Úžasná</option>
-                                        <option value="dobry">Dobrá</option>
-                                        <option value="uspokojiva">Uspokojivá</option>
-                                        <option value="asfalt_nic_moc_dobra">Afalt nič moc, ale dobrá</option>
+                                        <option value="Lepšej cesty niet">Lepšej cesty niet</option>
+                                        <option value="Úžasná">Úžasná</option>
+                                        <option value="Dobrá">Dobrá</option>
+                                        <option value="Uspokojivá">Uspokojivá</option>
+                                        <option value="Asfalt nič moc, ale stojí za to">Afalt nič moc, ale stojí za to</option>
                                         <option value="zla">Zlá</option>
-                                        <option value="kriticna">Kritická</option>
+                                        <option value="Kritická">Kritická</option>
                                     </select>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="vytazenost">Vyťaženosť:</label>
-                                    <span id="vytazenostValue">50</span>
+                                    <span id="vytazenostValue">50 %</span>
                                     <input type="range" class="form-control-range custom-slider" id="vytazenost" name="vytazenost" min="0" max="100" step="1" oninput="updateVytazenostValue(this.value);">
                                 </div>
 
@@ -63,7 +63,6 @@
                                             <input type="checkbox" class="form-check-input input-registracie" id="vhodne_cez_zimu" name="vhodne_cez_zimu" value="1">
                                         </div>
                                     </div>
-
                                 </div>
                                 <button type="submit" class="btn tlacitkoRegistrovat">Vytvoriť cestu</button>
                             </form>
@@ -72,7 +71,6 @@
                 </div>
             </div>
         </div>
-
 
 @endsection
 @endauth

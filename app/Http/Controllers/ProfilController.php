@@ -23,7 +23,7 @@ class ProfilController extends Controller
         $validatedData = $request->validate([
             'meno' => 'required|max:255',
             'priezvisko' => 'required|max:255',
-            // Overte, či je e-mail unikátny v tabuľke uzivatelia, okrem aktuálneho užívateľa
+            // Overenie, či je e-mail unikátny v tabuľke uzivatelia, okrem aktuálneho užívateľa
             'email' => 'required|email|unique:uzivatelia,email,' . $userId,
         ]);
 
@@ -31,21 +31,20 @@ class ProfilController extends Controller
         // Načítajte užívateľa z databázy
         $user = Uzivatel::find($userId);
 
-        // Overte, či užívateľ existuje
+        // Overenie, či užívateľ existuje
         if ($user) {
-            // Aktualizujte údaje užívateľa
+            // Aktualizovanie údajov užívateľa
             $user->meno = $validatedData['meno'];
             $user->priezvisko = $validatedData['priezvisko'];
             $user->email = $validatedData['email'];
 
-            // Uložte zmeny
+            // Uloženie zmien
             $user->save();
 
-            // Presmerujte s úspešnou správou alebo vykonajte ďalšie akcie
             return redirect()->back()->with('status', 'Údaje boli úspešne aktualizované.');
         } else {
             // V prípade, že užívateľ nebol nájdený, vráťte chybovú správu
-            return redirect()->back()->with('error', 'Užívateľ nebol nájdený.');
+            return redirect()->back()->withErrors(['error', 'Užívateľ nebol nájdený.']);
         }
     }
 

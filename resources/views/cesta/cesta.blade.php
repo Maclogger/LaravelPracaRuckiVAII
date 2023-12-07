@@ -82,6 +82,8 @@
             </div>
 
         </div>
+
+
         <section class="komentare row w-100">
 
             <!-- Nadpis Sekcie -->

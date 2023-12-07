@@ -754,6 +754,21 @@ a {
     border-radius: 24px;
 }
 
+.tlacitko_zobrazit_viac {
+    background-color: #FF9138;
+    color: white;
+    border-radius: 14px;
+    padding:0.5rem 1rem 0.5rem 1rem;
+    transition: color 0.3s, background-color 0.3s ease;
+}
+
+.tlacitko_zobrazit_viac:hover {
+    background-color: white;
+    color: #FF9138;
+    transition: color 0.3s, background-color 0.3s ease;
+}
+
+
 
 
 

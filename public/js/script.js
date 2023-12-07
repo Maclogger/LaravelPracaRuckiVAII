@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-
-
+    // zobrazovanie okienok pri profilových informáciách
     try {
         // Získanie modálneho okna
         var modalEdit = document.getElementById("editModal");
@@ -13,10 +12,23 @@ document.addEventListener('DOMContentLoaded', function() {
         var btnUpravaUdajov = document.getElementById("editaciaBtn");
         var btnZmenaHesla = document.getElementById("zmenaHeslaBtn");
 
-        // Získanie elementu <span>, ktorý zatvorí modálne okno
+
+        // Keď používateľ klikne na tlačidlo, otvorí sa modálne okno
+        btnUpravaUdajov.onclick = function() {
+            modalEdit.style.display = "block";
+            sekcia_profilove_informacie.style.display = "none";
+            modalZmenaHesla.style.display = "none";
+        }
+
+
+        btnZmenaHesla.onclick = function () {
+            modalEdit.style.display = "none";
+            sekcia_profilove_informacie.style.display = "none";
+            modalZmenaHesla.style.display = "block";
+        }
+
+         // Získanie elementu <span>, ktorý zatvorí modálne okno
         var spans = document.getElementsByClassName("close_profilove_informacie_js");
-
-
 
         // Použitie forEach na iteráciu cez všetky prvky s triedou 'close_profilove_informacie_js'
         Array.from(spans).forEach(function(span) {
@@ -27,36 +39,19 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         });
 
-
-        // Keď používateľ klikne na tlačidlo, otvorí sa modálne okno
-        btnUpravaUdajov.onclick = function() {
-            modalEdit.style.display = "block";
-            sekcia_profilove_informacie.style.display = "none";
-        }
+    } catch (e) {}
 
 
-        btnZmenaHesla.onclick = function () {
-            modalEdit.style.display = "none";
-            sekcia_profilove_informacie.style.display = "none";
-            modalZmenaHesla.style.display = "block";
-        }
-    } catch (e) {
-
-    }
-
+    // potvrdzovaci formulár pri pridávaní novej cesty
     try {
-        document.getElementById('pridaj_cestu').addEventListener('submit', function() {
-            return confirm('Potvrdiť vytvorenie cesty?');
-        });
-    } catch (e) {
-
-    }
+        document.getElementById('pridaj_cestu').onsubmit = function() {
+            return confirm('Naozaj chcete pridať novú cestu?');
+        };
+    } catch (e) {}
 
 
-
+    // Funkcia na kontrolu zhody hesiel
     try {
-
-        // Funkcia na kontrolu zhody hesiel
         function validatePassword() {
             var password = document.getElementById('heslo');
             var confirm_password = document.getElementById('password2');
@@ -64,52 +59,52 @@ document.addEventListener('DOMContentLoaded', function() {
             // Kontrola dĺžky hesla
             if (password.value.length < 8) {
                 password.setCustomValidity('Heslo musí obsahovať minimálne 8 znakov');
+                return;
             } else {
                 password.setCustomValidity('');
             }
             // Kontrola zhody hesiel
             if (password.value !== confirm_password.value) {
                 confirm_password.setCustomValidity('Heslá sa nezhodujú');
+                //return;
             } else {
                 confirm_password.setCustomValidity('');
             }
         }
         // Pripojenie funkcie na udalosti
         document.getElementById('heslo').onchange = validatePassword;
-        document.getElementById('password2').onkeyup = validatePassword;
+        document.getElementById('password2').onchange = validatePassword;
 
-        // Funkcia na kontrolu vyplnenia požadovaných polí
-        function validateForm() {
-            var inputs = document.querySelectorAll('#registruj .input-registracie');
-            var valid = true;
-            inputs.forEach(function(input) {
-                if (!input.value) {
-                    valid = false;
-                    input.classList.add('is-invalid');
-                } else {
-                    input.classList.remove('is-invalid');
-                }
-            });
-            return valid;
-        }
 
-        // Pripojenie kontroly formulára na odoslanie
-        document.getElementById('registruj').onsubmit = function(event) {
-            if (!validateForm()) {
-                event.preventDefault();
+    } catch (e) {}
+
+
+
+
+    try {
+
+        var dlzkaTrasyInput = document.getElementById('dlzka_trasy');
+
+        function validateDlzkaTrasy() {
+            if (!/^\d+$/.test(dlzkaTrasyInput.value)) {
+                dlzkaTrasyInput.setCustomValidity('Prosím zadajte dĺžku trasy ako celé číslo.');
+            } else {
+                dlzkaTrasyInput.setCustomValidity('');
             }
-        };
-
-
-    } catch (e) {
-
-    }
+        }
+        dlzkaTrasyInput.onchange = validateDlzkaTrasy;
+    } catch (e) {}
 
 });
 
 
 function updateVytazenostValue(value) {
-    document.getElementById('vytazenostValue').textContent = value;
+    document.getElementById('vytazenostValue').textContent = value + " %";
+}
+
+// potvrdzovaci formulár pri odstránení novej cesty
+function potvrditMazanie() {
+    return confirm('Naozaj chcete zmazať túto cestu?');
 }
 
 
