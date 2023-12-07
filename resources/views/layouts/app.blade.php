@@ -97,7 +97,7 @@
         <a class="ikonkaMenu icon-height my-3" href="https://www.youtube.com/">
             <i class="bi bi-youtube"></i>
         </a>
-        <a class="ikonkaMenu icon-height my-3" href="https://github.com/Maclogger/SemestralnaPracaRuckiVAII">
+        <a class="ikonkaMenu icon-height my-3" href="https://github.com/Maclogger/LaravelPracaRuckiVAII">
             <i class="bi bi-github"></i>
         </a>
     </div>

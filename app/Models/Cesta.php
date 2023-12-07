@@ -7,10 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cesta extends Model
 {
-    // Určuje, že model by mal pracovať s tabuľkou 'cesty'
     protected $table = 'cesty';
 
-    // Určuje, ktoré stĺpce je možné hromadne priradiť
     protected $fillable = [
         'nazov_cesty',
         'popis',
@@ -24,11 +22,9 @@ class Cesta extends Model
         'author'
     ];
 
-    // Určuje, ktoré stĺpce sú typu 'date' (ak používate časové pečiatky alebo dátumy)
     protected $dates = [
         'created_at',
         'updated_at',
-        // Ak máte ďalšie dátumové stĺpce, pridajte ich sem
     ];
 
 }

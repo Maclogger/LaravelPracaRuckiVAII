@@ -41,14 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     } catch (e) {}
 
-
     // potvrdzovaci formulár pri pridávaní novej cesty
     try {
         document.getElementById('pridaj_cestu').onsubmit = function() {
             return confirm('Naozaj chcete pridať novú cestu?');
         };
     } catch (e) {}
-
 
     // Funkcia na kontrolu zhody hesiel
     try {
@@ -77,9 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     } catch (e) {}
-
-
-
 
     try {
 

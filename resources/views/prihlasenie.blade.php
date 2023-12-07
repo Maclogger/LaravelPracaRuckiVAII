@@ -20,13 +20,6 @@
                                     <input type="password" class="form-control input-registracie" name="heslo" id="heslo" placeholder="Zadajte heslo" required>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input input-registracie" id="terms">
-                                        <label class="form-check-label" for="terms">Zapamätať prihlásenie</label>
-                                    </div>
-                                </div>
-
                                 <button type="submit" class="btn tlacitkoRegistrovat">Prihlásiť sa</button>
                             </form>
                         </div>

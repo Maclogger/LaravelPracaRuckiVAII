@@ -37,12 +37,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input input-registracie" id="terms">
-                                        <label class="form-check-label" for="terms">Zapamätať prihlásenie</label>
-                                    </div>
-                                </div>
                                 <button type="submit" class="btn tlacitkoRegistrovat">Registrovať sa</button>
                             </form>
                         </div>

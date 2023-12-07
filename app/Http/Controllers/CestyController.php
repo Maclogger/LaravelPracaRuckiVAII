@@ -130,6 +130,4 @@ class CestyController extends Controller
         return redirect()->back()->with('status', 'Cesta bola úspešne odstránená.');
     }
 
-
-
 }
