@@ -66,18 +66,10 @@
             </div>
         </div>
 
+        @if($cesta->mapa != null)
+        <div class="rowo mt-4 mapka_div">
+            <iframe src="{{ $cesta->mapa }}" class="mapka_frame" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        @endif
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection

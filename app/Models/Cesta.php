@@ -19,7 +19,8 @@ class Cesta extends Model
         'vhodne_pre_motorky',
         'vhodne_cez_zimu',
         'popularna_cesta',
-        'author'
+        'author',
+        'mapa'
     ];
 
     protected $dates = [

@@ -691,8 +691,8 @@ a {
     background-color: #FF9138;
     color: white;
     border-radius: 50%;
-    width: 7rem;
-    height: 7rem;
+    width: 5rem;
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -710,6 +710,7 @@ a {
 
 .floating-button_add .bi-plus {
     transition: color 0.3s ease;
+    font-size: 4rem;
 }
 
 
@@ -770,7 +771,14 @@ a {
 
 
 
-
+.mapka_frame {
+    position: relative;
+    left: -0.8rem;
+    width: 100%;
+    border-radius: 24px;
+    z-index: 0;
+    height: 20rem;
+}
 
 
 

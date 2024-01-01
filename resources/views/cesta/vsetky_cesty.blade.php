@@ -13,7 +13,7 @@
         <!-- Nadpis Sekcie -->
         <div class="row mb-4">
             <div class="col">
-                <h1 class="text-center mb-4">Všetky Cesty</h1>
+                <h1 class="text-center mb-4">Všetky cesty</h1>
             </div>
         </div>
 
