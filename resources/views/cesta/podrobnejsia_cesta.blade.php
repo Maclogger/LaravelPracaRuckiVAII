@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        <div class="zaobleneRohy popis_cesty_div ">
+        <div class="zaobleneRohy popis_cesty_div">
             {{ $cesta->popis }}
         </div>
 
