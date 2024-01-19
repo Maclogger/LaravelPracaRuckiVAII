@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('priezvisko');
             $table->string('email')->unique();
             $table->string('heslo');
+            $table->string('ikonka_url')->default('"images/profilovky/default.png"');
             $table->rememberToken();
             $table->timestamps();
         });

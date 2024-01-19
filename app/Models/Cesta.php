@@ -28,4 +28,8 @@ class Cesta extends Model
         'updated_at',
     ];
 
+    protected $guarded = [
+        "id"
+    ];
+
 }

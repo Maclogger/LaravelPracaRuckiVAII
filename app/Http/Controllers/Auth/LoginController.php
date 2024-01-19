@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('prihlasenie');
+        return view('uzivatelia.prihlasenie');
     }
 
     public function prihlas(Request $request)

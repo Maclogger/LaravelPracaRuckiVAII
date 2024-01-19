@@ -7,6 +7,6 @@
         <h2> {{ $cesta->nazov_cesty }} </h2>
         <p> {{ $cesta->popis }} </p>
         <br>
-        <a href="{{ route('cesta.show', $cesta->id) }}" class="tlacitko_zobrazit_viac">Zobraziť viac</a>
+        <a href="{{ route('cesta.zobraz_podrobnu_cestu', $cesta->id) }}" class="tlacitko_zobrazit_viac">Zobraziť viac</a>
     </div>
 </div>

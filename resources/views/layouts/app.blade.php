@@ -34,14 +34,14 @@
                         <a href="{{ route('cesta.vsetky_cesty') }}" class="nav-link border-hover py-3 text-white">Všetky cesty</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link border-hover py-3 text-white">Ostatní užívatelia</a>
+                        <a href="{{ route('uzivatelia.ostatni_uzivatelia') }}" class="nav-link border-hover py-3 text-white">Ostatní užívatelia</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link border-hover py-3 text-white">Novinky</a>
                     </li>
                     @guest
                     <li class="nav-item">
-                        <a href="{{ route('registracia') }}" data-content="registracia_sekcia" class="nav-link border-hover py-3 text-white">Registrácia</a>
+                        <a href="{{ route('uzivatelia.registracia') }}" data-content="registracia_sekcia" class="nav-link border-hover py-3 text-white">Registrácia</a>
                     </li>
                     @endguest
                     <li class="nav-item d-lg-none">
@@ -66,7 +66,7 @@
                     </li>
                     @guest
                     <li class="nav-item d-flex align-items-center">
-                        <a href="{{ route('prihlasenie') }}" class="btn prihlasenie_button">
+                        <a href="{{ route('uzivatelia.prihlasenie') }}" class="btn prihlasenie_button">
                             <i class="bi bi-person-circle"></i>
                             Prihlásenie
                         </a>

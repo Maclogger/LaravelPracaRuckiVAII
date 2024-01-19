@@ -5,10 +5,6 @@
 }
 
 
-
-
-
-
 *::selection {
     background-color: #FF9138; /* farba pozadia pre zvýraznený text */
     color: white; /* farba textu pre zvýraznený text */
@@ -349,8 +345,6 @@ footer {
 }
 
 
-
-
 /*
     STYLY PRE CESTA.html
 */
@@ -501,7 +495,6 @@ link-muted {
 .komentare {
     margin: 0;
     background-color: white;
-
 }
 
 .komentare * {
@@ -782,7 +775,167 @@ a {
 
 
 
+.obrazok-cesty-ostatni {
+    max-width: 15rem;
+    border-radius: 24px;
+    height:9rem;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-ostatni-uzivatelia {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease-out;
+}
+
+
+.dropdown-tlacitko-ostatni-uzivatelia {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.dropdown-tlacitko-ostatni-uzivatelia i {
+    color: white;
+    transition: color 0.3s
+}
+
+.dropdown-tlacitko-ostatni-uzivatelia:hover i {
+    color: #FF9138;
+    transition: color 0.3s
+}
+
+.dropdown-active {
+    height: auto;
+}
+
+.user-info-container {
+    justify-content: space-between; /* Distributes space between and around content items */
+    height: 2rem;
+    align-items: center;
+}
 
 
 
+
+.normalheight {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    font-size: 1.2rem;
+}
+
+.tlacitko-double-down-ostatni {
+    font-size: 1.8rem;
+}
+
+
+.odkaz_na_cestu_ostatni_uzivatelia {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.odkaz_na_cestu_ostatni_uzivatelia:hover {
+    color: #FF9138;
+    transition: color 0.3s;
+}
+
+.zoznam_ciest_uzivatela p {
+    margin: 0;
+}
+
+.polozka_cesta_container {
+    background-color: #3A3E4B;
+    border-radius: 24px;
+    padding: 1.6rem 1.3rem 1.6rem 1.3rem;
+    margin: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.polozka_cesta_container:hover {
+    background-color: #FF9138;
+    transition: background-color 0.3s;
+}
+
+ul {
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.meno_hore_vlavo_ostatni_uzivatelia, .meno_hore_vlavo_ostatni_uzivatelia i {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.orange-text {
+    color: #FF9138;
+}
+
+@media (min-width: 992px) { /* Bootstrap's default breakpoint for large (lg) screens */
+    .custom-text-align-right {
+        text-align: right;
+    }
+}
+
+.textik12rem {
+    font-size: 1.2rem;
+}
+
+
+/* komentare pridanie */
+
+
+.pridanie_komentara_div {
+    background-color: #3A3E4B;
+    border-radius: 24px;
+    color: white;
+    padding: 2rem;
+}
+
+.pridanie_komentara_div * {
+    color: white;
+}
+
+textarea {
+    border: none;
+    box-shadow: none;
+}
+
+textarea.active {
+    border: none;
+    box-shadow: none;
+}
+
+.komentar_div {
+    border-radius: 24px;
+    border-width: 1px;
+    border-color: #3A3E4B;
+}
+
+.ikonka_profilovka_div {
+    border-width: 10px;
+    border-color: black;
+    color:black;
+}
+
+.ikonka_profilovka {
+    border-radius: 50%;
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
+}
+
+.admin-label {
+    background-color: #FF9138;
+    border-radius: 24px;
+    padding: 3px 6px;
+    margin-left: 5px;
+    color: white;
+}
 

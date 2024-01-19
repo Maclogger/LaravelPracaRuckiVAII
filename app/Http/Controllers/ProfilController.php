@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class ProfilController extends Controller
 {
     public function index() {
-        return view("profil");
+        return view("uzivatelia.profil");
     }
 
 

@@ -3,7 +3,9 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CestyController;
+use App\Http\Controllers\KomentareController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\UzivateliaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CestyController::class, "indexTop"])->name('uvod');
@@ -13,10 +15,10 @@ Route::get('/cesta', function () {
 })->name('cesta');
 
 
-Route::get('/registracia', [RegisterController::class, 'index'])->name('registracia');
+Route::get('/registracia', [RegisterController::class, 'index'])->name('uzivatelia.registracia');
 Route::post('/registruj', [RegisterController::class, 'registruj']);
 
-Route::get('/prihlasenie', [LoginController::class, 'index'])->name('prihlasenie');
+Route::get('/prihlasenie', [LoginController::class, 'index'])->name('uzivatelia.prihlasenie');
 Route::post('/prihlas', [LoginController::class, 'prihlas']);
 Route::get('/odhlas', [LoginController::class, 'odhlas']);
 
@@ -33,13 +35,13 @@ Route::post('/pridaj_cestu', [CestyController::class, 'pridaj_cestu']);
 
 Route::get('/moje_cesty', [CestyController::class, 'indexMojeCesty'])->name("cesta.moje_cesty");
 
-Route::get('/cesty/{id}', [CestyController::class, 'show'])->name('cesta.show');
+Route::get('/cesty/{id}', [CestyController::class, 'zobraz_podrobnu_cestu'])->name('cesta.zobraz_podrobnu_cestu');
 
 Route::get('/cesty/odstran_cestu/{id}', [CestyController::class, 'odstran_cestu'])->name('cesta.odstran_cestu');
 
+Route::get('/ostatni_uzivatelia', [UzivateliaController::class, 'index'])->name('uzivatelia.ostatni_uzivatelia');
 
-
-
+Route::post('/pridaj_komentar', [KomentareController::class, 'pridaj_komentar'])->name('pridaj_komentar');
 
 
 

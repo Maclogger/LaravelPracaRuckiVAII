@@ -15,6 +15,7 @@ class Uzivatel extends Authenticatable
         'priezvisko',
         'email',
         'heslo',
+        'ikonka_url'
     ];
 
     protected $guarded = ['id'];
@@ -34,5 +35,11 @@ class Uzivatel extends Authenticatable
     {
         return $this->heslo;
     }
+
+    public function cesty()
+    {
+        return $this->hasMany(Cesta::class, 'author');
+    }
+
 
 }

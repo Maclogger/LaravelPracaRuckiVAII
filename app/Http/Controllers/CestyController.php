@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cesta;
+use App\Models\Komentar;
+use App\Models\Uzivatel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -28,10 +30,21 @@ class CestyController extends Controller
         return view("cesta.pridanie_cesty");
     }
 
-    public function show($id)
+    public function zobraz_podrobnu_cestu($id)
     {
         $cesta = Cesta::findOrFail($id); // Nájde cestu alebo vráti 404
-        return view('cesta.show', compact('cesta'));
+
+        $komentare = Komentar::where('id_cesty', $cesta->id)->get();
+
+        foreach ($komentare as $komentar) {
+            $autor = Uzivatel::findOrFail($komentar->id_autora);
+            $komentar->url_obrazku_autora = $autor->ikonka_url;
+            $komentar->meno_autora = $autor->meno;
+        }
+
+        $cesta->komentare = $komentare;
+
+        return view('cesta.podrobnejsia_cesta', compact('cesta'));
     }
 
     public function pridaj_cestu(Request $request) {

@@ -22,6 +22,9 @@ return new class extends Migration
             $table->boolean('vhodne_pre_motorky');
             $table->boolean('vhodne_cez_zimu');
             $table->boolean('popularna_cesta');
+            $table->text('mapa')->nullable();
+            $table->unsignedBigInteger('author')->nullable();
+            $table->foreign('author')->references('id')->on('uzivatelia')->onDelete('set null');
             $table->timestamps();
         });
     }

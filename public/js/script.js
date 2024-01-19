@@ -90,6 +90,27 @@ document.addEventListener('DOMContentLoaded', function() {
         dlzkaTrasyInput.onchange = validateDlzkaTrasy;
     } catch (e) {}
 
+    try {
+        document.querySelectorAll('.dropdown-tlacitko-ostatni-uzivatelia').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                let button = event.target.closest('.dropdown-tlacitko-ostatni-uzivatelia');
+                let uzivatelId = button.getAttribute('data-uzivatel-id');
+                let dropdownContent = document.getElementById(`dropdown-${uzivatelId}`);
+
+                if (dropdownContent) {
+                    if (dropdownContent.style.height) {
+                        dropdownContent.style.height = null;
+                    } else {
+                        let contentHeight = dropdownContent.scrollHeight + "px";
+                        dropdownContent.style.height = contentHeight;
+                    }
+                } else {
+                    console.error('Dropdown content not found for ID:', uzivatelId);
+                }
+            });
+        });
+    } catch (e) {}
 });
 
 
@@ -102,7 +123,7 @@ function potvrditMazanie() {
     return confirm('Naozaj chcete zmazať túto cestu?');
 }
 
-
-
-
+function redirectTo(url) {
+    window.location.href = url;
+}
 
