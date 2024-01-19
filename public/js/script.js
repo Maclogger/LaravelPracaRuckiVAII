@@ -119,8 +119,8 @@ function updateVytazenostValue(value) {
 }
 
 // potvrdzovaci formulár pri odstránení novej cesty
-function potvrditMazanie() {
-    return confirm('Naozaj chcete zmazať túto cestu?');
+function potvrditMazanie(sprava) {
+    return confirm(sprava);
 }
 
 function redirectTo(url) {

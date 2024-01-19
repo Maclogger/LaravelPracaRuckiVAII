@@ -43,6 +43,7 @@ Route::get('/ostatni_uzivatelia', [UzivateliaController::class, 'index'])->name(
 
 Route::post('/pridaj_komentar', [KomentareController::class, 'pridaj_komentar'])->name('pridaj_komentar');
 
+Route::get('/odstran_komentar/{id}', [KomentareController::class, 'odstran_komentar'])->name('pridaj_komentar');
 
 
 

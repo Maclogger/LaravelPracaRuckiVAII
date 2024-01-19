@@ -23,7 +23,7 @@
 
                 <div class="col-lg-6 align-items-center pravaStranaAtributy">
 
-                    <div class="row zaboleneRohy h-100">
+                    <div class="row zaobleneRohy h-100">
 
                         <!-- Dĺžka trasy - ukazateľ -->
                         <div class="row mt-4 riadokAtribut align-items-center">

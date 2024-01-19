@@ -42,6 +42,8 @@ class CestyController extends Controller
             $komentar->meno_autora = $autor->meno;
         }
 
+        $cesta->meno_autora = Uzivatel::findOrFail($cesta->author)->meno;
+
         $cesta->komentare = $komentare;
 
         return view('cesta.podrobnejsia_cesta', compact('cesta'));

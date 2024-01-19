@@ -2,23 +2,21 @@
 
 @section('content')
 
-    <div class="row cesta_sekcia">
+    <div class="cesta_sekcia">
 
         <!-- Nadpis Sekcie -->
-        <div class="row mt-3">
+        <div class="mt-3">
             <div class="col">
                 <h1 class="text-center mb-4">{{ $cesta->nazov_cesty }}</h1>
             </div>
         </div>
 
-        <div class="row mt-5 h-100 hlavna_cast_cesty">
-            <div class="col-lg-6 lavaStranaAtributy">
-                <img class="obrazokCesty" src="../{{ $cesta->obrazok_url }}" alt=" {{ $cesta->nazov_cesty }}">
+        <div class="row mt-5 h-100 moj_row">
+            <div class="col-lg-6 lavaStranaAtributy ">
+                <img class="obrazokCesty zaobleneRohy" src="../{{ $cesta->obrazok_url }}" alt=" {{ $cesta->nazov_cesty }}">
             </div>
-
             <div class="col-lg-6 align-items-center pravaStranaAtributy">
-
-                <div class="row zaboleneRohy h-100">
+                <div class="row zaobleneRohy h-100">
 
                     <!-- Dĺžka trasy - ukazateľ -->
                     <div class="row mt-4 riadokAtribut align-items-center">
@@ -51,23 +49,41 @@
 
                     <!-- Vhodné pre motorky - ikona alebo textový indikátor -->
                     <div class="row riadokAtribut align-items-center">
-                        <p class="w-auto">Vhodné pre motorky:</p>
-                        <i class="w-auto bi bi-check-circle-fill {{ $cesta->vhodne_pre_motorky ? "indicator-yes" : "indicator-no" }}"> {{ $cesta->vhodne_pre_motorky ? "Áno" : "Nie" }} </i>
+                        <p class="w-auto">Vhodné pre motorky:
+                            <span>
+                                <i class="w-auto bi {{ $cesta->vhodne_pre_motorky ? "bi-check-circle-fill indicator-yes" : "bi-x-circle-fill indicator-no" }}"></i>
+                                {{ $cesta->vhodne_pre_motorky ? "Áno" : "Nie" }}
+                            </span>
+                        </p>
+                    </div>
+                    <!-- Vhodné cez zimné obdobie - ikona alebo textový indikátor -->
+                    <div class="row riadokAtribut align-items-center">
+                        <p class="w-auto">Vhodné cez zimné obdobie:
+                            <i class="bi w-auto {{ $cesta->vhodne_cez_zimu ? "bi-check-circle-fill indicator-yes" : "bi-x-circle-fill indicator-no" }}"></i>
+                            {{ $cesta->vhodne_cez_zimu ? "Áno" : "Nie" }}
+                        </p>
                     </div>
 
-                    <!-- Vhodné cez zimné obdobie - ikona alebo textový indikátor -->
                     <div class="row mb-4 riadokAtribut align-items-center">
-                        <p class="w-auto">Vhodné cez zimné obdobie:</p>
-                        <i class="bi w-auto bi-x-circle-fill {{ $cesta->vhodne_cez_zimu ? "indicator-yes" : "indicator-no" }}"> {{ $cesta->vhodne_cez_zimu ? "Áno" : "Nie" }} </i>
+                        <p class="w-auto">
+                            Autor:
+                            <span class="admin-label">
+                                {{ $cesta->meno_autora }}
+                            </span>
+                        </p>
+
                     </div>
 
                 </div>
-
             </div>
         </div>
 
+        <div class="zaobleneRohy popis_cesty_div ">
+            {{ $cesta->popis }}
+        </div>
+
         @if($cesta->mapa != null)
-        <div class="rowo mt-4 mapka_div">
+        <div class="mt-4">
             <iframe src="{{ $cesta->mapa }}" class="mapka_frame" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         @endif
@@ -100,7 +116,7 @@
                                             {{ $komentar->meno_autora }}
                                         </span>
                                         @if($cesta->author == $komentar->id_autora)
-                                            <span class="admin-label">Tvorca</span>
+                                            <span class="admin-label">Autor</span>
                                         @endif
                                     </h5>
                                     <p class="small mt-3">{{ $komentar->created_at->diffForHumans() }}</p>
@@ -114,7 +130,9 @@
                                             <a href="#!" class="link-muted me-2"><i class="bi bi-heart-fill me-1 ikonkaSrdiecko"></i>{{ $komentar->pocet_likov }}</a>
                                         </div>
                                         @if($komentar->id_autora == Auth::id())
-                                            <a href="#!" class="link-muted"><i class="bi bi-trash-fill ikonkaReply"></i> Zmazať</a>
+                                            <a href="/odstran_komentar/{{$komentar->id}}" class="link-muted" onclick="return potvrditMazanie('Naozaj chcete zmazať tento komentár?');">
+                                                <i class="bi bi-trash-fill ikonkaReply"></i> Zmazať
+                                            </a>
                                         @endif
                                     </div>
                                 </div>

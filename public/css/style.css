@@ -183,6 +183,7 @@ nav {
     padding-right: 0.8rem;
     background-color: #2b3944;
     border-radius: 24px;
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }
 
 .custom-img {
@@ -345,18 +346,18 @@ footer {
 }
 
 
-/*
-    STYLY PRE CESTA.html
-*/
-
-
-
 .obrazokCesty {
     border-radius: 24px;
-    object-fit: cover;
     height: 100%;
     width: 100%;
 }
+
+
+
+
+/*
+    STYLY PRE CESTA.html
+*/
 
 
 .indicator-yes {
@@ -370,28 +371,26 @@ footer {
 .pravaStranaAtributy {
     display: grid;
     align-items: center;
-    margin-top: 1.5rem;
 }
 
-@media (min-width: 992px) {
-    .lavaStranaAtributy {
-        padding-right: 2rem;
-    }
-    .pravaStranaAtributy {
-        padding-left: 2rem;
-        margin-top: 0;
-    }
+.moj_row {
+    margin:0;
 }
 
-.zaboleneRohy {
+
+.zaobleneRohy {
     background-color: #2b3944;
     border-radius: 24px;
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }
 
 .lavaStranaAtributy {
-    padding-left: 0;
-    padding-right: 0;
+    position: relative;
+    left: -0.6rem;
+    overflow: hidden;
+    background-color: transparent;
 }
+
 
 
 .riadokAtribut p {
@@ -762,18 +761,14 @@ a {
     transition: color 0.3s, background-color 0.3s ease;
 }
 
-
-
 .mapka_frame {
     position: relative;
-    left: -0.8rem;
-    width: 100%;
-    border-radius: 24px;
     z-index: 0;
-    height: 20rem;
+    height: 22rem;
+    width:100%;
+    border-radius: 24px;
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }
-
-
 
 .obrazok-cesty-ostatni {
     max-width: 15rem;
@@ -939,3 +934,11 @@ textarea.active {
     color: white;
 }
 
+.popis_cesty_div {
+    margin-top:1.2rem;
+    font-size: 1.2em;
+    padding: 1.3rem;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}

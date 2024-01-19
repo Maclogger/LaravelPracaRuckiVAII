@@ -29,4 +29,19 @@ class KomentareController extends Controller
 
         return redirect()->back()->with('status', 'Komentár bol úspešne pridaný.');
     }
+
+
+    public function odstran_komentar($id)
+    {
+        $komentar = Komentar::find($id);
+
+        if ($komentar) {
+            $komentar->delete();
+            return redirect()->back()->with('status', 'Komentár bol úspešne odstránený.');
+        } else {
+            return redirect()->back()->with('error', 'Komentár sa nenašiel.');
+        }
+    }
+
+
 }
