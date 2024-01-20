@@ -13,6 +13,7 @@ class KomentareController extends Controller
     public function pridaj_komentar(Request $request)
     {
 
+
         // Validácia vstupných dát
         $validatedData = $request->validate([
             'text' => 'required|string|max:10000', // Text komentáru, je povinný a môže mať max. 10 000 znakov
@@ -32,8 +33,6 @@ class KomentareController extends Controller
         return redirect()->back()->with('status', 'Komentár bol úspešne pridaný.');
     }
 
-
-
     public function odstran_komentar($id)
     {
         $komentar = Komentar::find($id);
@@ -48,6 +47,5 @@ class KomentareController extends Controller
             return redirect()->back()->with('error', 'Komentár sa nenašiel.');
         }
     }
-
 
 }

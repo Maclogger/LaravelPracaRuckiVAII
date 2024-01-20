@@ -14,6 +14,7 @@
                             <p><strong>Meno:</strong> {{ Auth::user()->meno }} {{ Auth::user()->priezvisko }}</p>
                             <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
                             <p><strong>Dátum registrácie:</strong> {{ Auth::user()->created_at }}</p>
+                            <p><strong>Rola: </strong> {{ Auth::user()->rola_nazov() }}</p>
                         </div>
                         <div class="col-lg-3">
                             <div class="ikonka_profilovka_div_profil">

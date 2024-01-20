@@ -466,14 +466,14 @@ footer {
 
 
 
-.cesta_sekcia {
+.sekcia {
     padding: 0 10% 5% 10%;
     margin: 0 0 0 1.5rem;
 }
 
 
 @media (max-width: 992px) {
-    .cesta_sekcia {
+    .sekcia {
         padding: 0 0 5% 0;
         width: 100vw;
     }
@@ -1061,3 +1061,71 @@ textarea:active {
 .boxovy_shadow {
     box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }
+
+
+.ikonka_profilovka_podrobnejsia_cesta_div {
+    width: 45px;
+    height: 45px;
+}
+
+
+.ikonka_profilovka_podrobnejsia_cesta {
+    width: 100%;
+    height: 100%;
+}
+
+.atributAutor {
+    border-radius: 24px;
+    padding: 0.3rem 0 0.3rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+}
+
+.autor_atribut_nazov {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 1.7rem;
+}
+
+.tlacitko_na_chat {
+    transition: color 0.3s, background-color 0.3s ease;
+}
+
+.tlacitko_na_chat:hover {
+    background-color: white;
+    color: #FF9138;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s ease;
+}
+
+.tlacitko_na_chat:hover * {
+    background-color: white;
+    color: #FF9138;
+    transition: color 0.3s, background-color 0.3s ease;
+}
+
+.textarea_mapy_link {
+    width: 100%;
+    border-radius: 10px;
+    padding: 0.3rem;
+}
+
+.tlacitko_odoslat_link_mapy {
+    background-color: #FF9138;
+    color: white;
+    transition: color 0.3s, background-color 0.3s ease;
+    border-radius: 24px;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.tlacitko_odoslat_link_mapy:hover {
+    background-color: white;
+    color: #FF9138;
+    transition: color 0.3s, background-color 0.3s ease;
+
+}
+
+

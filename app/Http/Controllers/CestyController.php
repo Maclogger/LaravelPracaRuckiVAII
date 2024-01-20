@@ -45,7 +45,7 @@ class CestyController extends Controller
             $komentar->is_liked = LikeKomentara::where('id_komentaru', $komentar->id)->where('id_autora_liku', Auth::id())->exists();
         }
 
-        $cesta->meno_autora = Uzivatel::findOrFail($cesta->author)->meno;
+        $cesta->autor = Uzivatel::findOrFail($cesta->author);
 
         $cesta->komentare = $komentare;
 
@@ -148,4 +148,25 @@ class CestyController extends Controller
         return redirect()->back()->with('status', 'Cesta bola úspešne odstránená.');
     }
 
+    public function pridaj_link_mapy(Request $request)
+    {
+        $validated = $request->validate([
+            'id_cesty' => 'required|exists:cesty,id',
+            'link_mapy' => 'required|max:100000',
+        ]);
+
+        // ak zadá priamo celý link admin z googlu a nie len link.
+        if (str_starts_with($validated['link_mapy'], '<iframe src="')) {
+            $start = strlen('<iframe src="');
+            $end = strpos($validated['link_mapy'], '"', $start);
+            $validated['link_mapy'] = substr($validated['link_mapy'], $start, $end-$start);
+        }
+
+        $cesta = Cesta::find($validated['id_cesty']);
+
+        $cesta->mapa = $validated['link_mapy'];
+        $cesta->save();
+
+        return redirect()->back()->with('status', 'Mapa bola úspešne zmenená.');
+    }
 }

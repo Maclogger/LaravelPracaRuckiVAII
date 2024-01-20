@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('heslo');
             $table->string('ikonka_url')->default('images/profilovky/default.png');
+            $table->unsignedBigInteger('rola');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('rola')->references('id')->on('role');
         });
     }
 

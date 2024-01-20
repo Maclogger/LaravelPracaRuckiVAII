@@ -15,7 +15,8 @@ class Uzivatel extends Authenticatable
         'priezvisko',
         'email',
         'heslo',
-        'ikonka_url'
+        'ikonka_url',
+        'rola'
     ];
 
     protected $guarded = ['id'];
@@ -41,5 +42,17 @@ class Uzivatel extends Authenticatable
         return $this->hasMany(Cesta::class, 'author');
     }
 
+    public function rola_nazov() : string
+    {
+        $rola = RoleModel::where('id', $this->rola)->first();
+        if ($rola) {
+            return $rola->nazov_role;
+        }
+        return "GUEST";
+    }
 
+    public function jeAdmin() : bool
+    {
+        return $this->rola == 1;
+    }
 }

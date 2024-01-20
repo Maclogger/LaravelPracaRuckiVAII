@@ -1,4 +1,3 @@
-
 <div class="row align-items-center custom-row pt-4 pb-4">
     <div class="col-md-6">
         <img src="{{ $cesta->obrazok_url }}" alt="{{ $cesta->nazov_cesty }}" class="custom-img">

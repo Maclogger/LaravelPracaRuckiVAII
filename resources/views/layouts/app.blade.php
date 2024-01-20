@@ -38,7 +38,7 @@
                         <a href="{{ route('uzivatelia.ostatni_uzivatelia') }}" class="nav-link border-hover py-3 text-white">Ostatní užívatelia</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link border-hover py-3 text-white">Novinky</a>
+                        <a href="{{ route('chat.chaty') }}" class="nav-link border-hover py-3 text-white">Chaty</a>
                     </li>
                     @guest
                     <li class="nav-item">
@@ -95,7 +95,6 @@
                             </a>
                         </li>
                     @endguest
-
 
                 </ul>
             </div>

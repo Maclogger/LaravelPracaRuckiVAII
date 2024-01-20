@@ -19,6 +19,22 @@ class DatabaseSeeder extends Seeder
         DB::table('komentare')->delete();
         DB::table('cesty')->delete();
         DB::table('uzivatelia')->delete();
+        DB::table('role')->delete();
+
+        DB::table('role')->insert([
+            [
+                'id' => 1,
+                'nazov_role' => 'ADMIN',
+                'created_at' => '2024-01-18 20:54:04',
+                'updated_at' => '2024-01-18 20:54:04',
+            ],
+            [
+                'id' => 2,
+                'nazov_role' => 'STANDARD',
+                'created_at' => '2024-01-18 20:54:04',
+                'updated_at' => '2024-01-18 20:54:04',
+            ],
+        ]);
 
         DB::table('uzivatelia')->insert([
             [
@@ -29,6 +45,7 @@ class DatabaseSeeder extends Seeder
                 'heslo' => '$2y$12$p3bpOi7e3s9Kk.nUhtljpOJJb5PEJFjA0jXDBWdZJ9ffvKqhttT/e',
                 'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
+                'rola' => 1,
                 'created_at' => '2024-01-18 20:54:04',
                 'updated_at' => '2024-01-18 20:54:04',
             ],
@@ -40,6 +57,7 @@ class DatabaseSeeder extends Seeder
                 'heslo' => '$2y$12$SojwNVR6VC6c51auMJAWouvqNUJ.dZ/rp48f6O1t58ELLRj45ltme',
                 'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
+                'rola' => 2,
                 'created_at' => '2024-01-18 20:59:07',
                 'updated_at' => '2024-01-18 20:59:07',
             ],
@@ -51,6 +69,7 @@ class DatabaseSeeder extends Seeder
                 'heslo' => '$2y$12$qBckdZE7HsIzlYPORs2Wbe9tOgBr7BjSOKEx83YirmaK/47l8kgIW',
                 'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
+                'rola' => 2,
                 'created_at' => '2024-01-18 20:59:29',
                 'updated_at' => '2024-01-18 20:59:29',
             ],
@@ -62,6 +81,7 @@ class DatabaseSeeder extends Seeder
                 'heslo' => '$2y$12$.xjLau21aZTfwPQMdYHjmewesVbSHQAMP9iHLkoac05mfE2HfDo1S',
                 'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
+                'rola' => 2,
                 'created_at' => '2024-01-18 21:11:06',
                 'updated_at' => '2024-01-18 21:11:06',
             ],
@@ -73,6 +93,7 @@ class DatabaseSeeder extends Seeder
                 'ikonka_url' => 'images/profilovky/default.png',
                 'heslo' => '$2y$12$zFs..umYDkm4xsVA2YVsoe2.btQZDJ8n.u4CX6YkW/1.6N7UOrmCq',
                 'remember_token' => Str::random(10),
+                'rola' => 2,
                 'created_at' => '2024-01-18 21:11:27',
                 'updated_at' => '2024-01-18 21:11:27',
             ],
@@ -84,6 +105,7 @@ class DatabaseSeeder extends Seeder
                 'ikonka_url' => 'images/profilovky/default.png',
                 'heslo' => '$2y$12$zFs..umYDkm4xsVA2YVsoe2.btQZDJ8n.u4CX6YkW/1.6N7UOrmCq',
                 'remember_token' => Str::random(10),
+                'rola' => 2,
                 'created_at' => '2024-01-18 21:11:27',
                 'updated_at' => '2024-01-18 21:11:27',
             ],
