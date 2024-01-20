@@ -4,14 +4,30 @@
 
 
 
-    <section id="sekcia_profilove_informacie" class="profil">
+    <section id="sekcia_profilove_informacie">
         <div class="row moj_row">
             <div class="row justify-content-center mt-4 moj_row">
-                <div class="col-12 col-md-6 col-lg-4 profilove_informacie">
+                <div class="col-12 col-md-6 col-lg-4 profilove_informacie zaobleneRohy">
                     <h2 class="text-center mb-4">Profilové informácie</h2>
-                    <p><strong>Meno:</strong> {{ Auth::user()->meno }} {{ Auth::user()->priezvisko }}</p>
-                    <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
-                    <p><strong>Dátum registrácie:</strong> {{ Auth::user()->created_at }}</p>
+                    <div class="row prvy_riadok_profilove_inf">
+                        <div class="col-lg-9">
+                            <p><strong>Meno:</strong> {{ Auth::user()->meno }} {{ Auth::user()->priezvisko }}</p>
+                            <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+                            <p><strong>Dátum registrácie:</strong> {{ Auth::user()->created_at }}</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="ikonka_profilovka_div_profil">
+                                <div class="overlay_profilova_ikonka rounded-circle">
+                                    <div class="text textik13rem">Zmeniť</div>
+                                </div>
+                                <img id="profileImage" class="rounded-circle profilovy_obrazok ikonka_profil_obrazok_kvoli_okamzitej_zmene"
+                                     src="{{'../'.Auth::user()->ikonka_url}}"
+                                     alt="avatar"/>
+                                <input type="file" id="imageUpload" style="display: none;" name="profileImage" accept="image/png, image/jpeg, image/gif, image/jpg">
+                            </div>
+                        </div>
+                    </div>
+
                     <a id="editaciaBtn" class="btn mt-3 tlacitko_profilove">Upraviť údaje</a>
                     <a id="zmenaHeslaBtn" class="btn mt-3 tlacitko_profilove">Zmeniť heslo</a>
                     <a href="/moje_cesty" class="btn mt-3 tlacitko_profilove">Moje cesty</a>
@@ -25,7 +41,7 @@
     <div id="editModal" class="modal">
         <div class="row moj_row">
             <div class="row justify-content-center mt-4 moj_row">
-                <div class="col-12 col-md-6 col-lg-4 profilove_editacne_informacie">
+                <div class="col-12 col-md-6 col-lg-4 profilove_editacne_informacie zaobleneRohy">
                     <form name="upravUdaje" id="upravUdaje" method="post" action="{{  url('/upravUdaje')  }}">
                         @csrf
                         <h2 class="text-center mt-1 mb-4">Úprava údajov</h2>
@@ -55,7 +71,7 @@
     <div id="editZmenaHelsaModal" class="modal">
         <div class="row moj_row">
             <div class="row justify-content-center mt-4 moj_row">
-                <div class="col-12 col-md-6 col-lg-4 profilove_editacne_informacie">
+                <div class="col-12 col-md-6 col-lg-4 profilove_editacne_informacie zaobleneRohy">
                     <form name="zmenHeslo" id="zmenHeslo" method="post" action="{{  url('/zmenHeslo')  }}">
                         @csrf
                         <h2 class="text-center mt-1 mb-4">Zmena hesla</h2>

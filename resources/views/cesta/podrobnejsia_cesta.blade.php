@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div class="row mt-5 h-100 moj_row">
+        <div class="row mt-5 h-100 w-100 moj_row">
             <div class="col-lg-6 lavaStranaAtributy ">
                 <img class="obrazokCesty zaobleneRohy" src="../{{ $cesta->obrazok_url }}" alt=" {{ $cesta->nazov_cesty }}">
             </div>
@@ -38,13 +38,13 @@
                     <!-- Stav cesty - ukazateľ hodnotenia -->
                     <div class="row riadokAtribut align-items-center">
                         <p class="w-auto">Stav cesty:</p>
-                        <p class="w-auto atributVytazenosti"> {{ $cesta->stav_cesty }} </p> <!-- bg-success pre zelenú, bg-warning pre oranžovú, bg-danger pre červenú -->
+                        <p class="w-auto atributVytazenosti boxovy_shadow"> {{ $cesta->stav_cesty }} </p> <!-- bg-success pre zelenú, bg-warning pre oranžovú, bg-danger pre červenú -->
                     </div>
 
                     <!-- Vyťaženosť - farebné označenie -->
                     <div class="row riadokAtribut align-items-center">
                         <p class="w-auto">Vyťaženosť:</p>
-                        <p class="w-auto atributVytazenosti"> {{ $cesta->vytazenost }} %</p> <!-- bg-success pre zelenú, bg-warning pre oranžovú, bg-danger pre červenú -->
+                        <p class="w-auto atributVytazenosti boxovy_shadow"> {{ $cesta->vytazenost }} %</p> <!-- bg-success pre zelenú, bg-warning pre oranžovú, bg-danger pre červenú -->
                     </div>
 
                     <!-- Vhodné pre motorky - ikona alebo textový indikátor -->
@@ -67,13 +67,11 @@
                     <div class="row mb-4 riadokAtribut align-items-center">
                         <p class="w-auto">
                             Autor:
-                            <span class="admin-label">
+                            <span class="admin-label boxovy_shadow">
                                 {{ $cesta->meno_autora }}
                             </span>
                         </p>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -105,9 +103,8 @@
                     @foreach($cesta->komentare as $komentar)
                         <div class="d-flex flex-start mb-4">
                             <div class="ikonka_profilovka_div">
-                                <img class="rounded-circle me-3 ikonka_profilovka"
-                                     src="../{{ $komentar->url_obrazku_autora }}" alt="avatar" width="65"
-                                     height="65" />
+                                <img class="rounded-circle me-3 ikonka_profilovka profilovka_komentar"
+                                     src="../{{ $komentar->url_obrazku_autora }}" alt="avatar"/>
                             </div>
                             <div class="card w-100 p-4 komentar_div">
                                 <div class="">
@@ -116,7 +113,7 @@
                                             {{ $komentar->meno_autora }}
                                         </span>
                                         @if($cesta->author == $komentar->id_autora)
-                                            <span class="admin-label">Autor</span>
+                                            <span class="admin-label boxovy_shadow">Autor</span>
                                         @endif
                                     </h5>
                                     <p class="small mt-3">{{ $komentar->created_at->diffForHumans() }}</p>
@@ -126,8 +123,13 @@
                                     </p>
 
                                     <div class="d-flex justify-content-between align-items-center mt-3">
-                                        <div class="d-flex align-items-center">
-                                            <a href="#!" class="link-muted me-2"><i class="bi bi-heart-fill me-1 ikonkaSrdiecko"></i>{{ $komentar->pocet_likov }}</a>
+                                        <div class="d-flex align-items-center tlacitko_like_komentar" data-like="{{ $komentar->is_liked }}" data-comment-id="{{ $komentar->id }}">
+                                            <a class="link-muted me-2">
+                                                <i class="bi bi-heart-fill me-1 ikonkaSrdiecko" style="color: {{ $komentar->is_liked ? '#FF9138' : '#3A3E4B' }};"></i>
+                                                <span class="pocet-likov">
+                                                    {{ $komentar->pocet_likov }}
+                                                </span>
+                                            </a>
                                         </div>
                                         @if($komentar->id_autora == Auth::id())
                                             <a href="/odstran_komentar/{{$komentar->id}}" class="link-muted" onclick="return potvrditMazanie('Naozaj chcete zmazať tento komentár?');">
@@ -138,15 +140,22 @@
                                 </div>
                             </div>
                         </div>
-
                     @endforeach
 
                     {{-- vytvorenie vlastného komentáru --}}
                     <div class="d-flex flex-start mb-4 pt-3">
-                        <img class="rounded-circle shadow-1-strong me-3"
-                             src="../images/profilovky/2.jpg" alt="avatar" width="65"
-                             height="65" />
-                        <div class="card w-100 pridanie_komentara_div">
+                        @auth
+                            <img class="rounded-circle shadow-1-strong me-3 boxovy_shadow"
+                                 src="../{{Auth::user()->ikonka_url}}" alt="avatar" width="65"
+                                 height="65" />
+                        @endauth
+                        @guest
+                                <img class="rounded-circle shadow-1-strong me-3 boxovy_shadow"
+                                     src="{{asset("images/profilovky/default.png")}}" alt="avatar" width="65"
+                                     height="65" />
+                        @endguest
+
+                        <div class="card w-100 pridanie_komentara_div boxovy_shadow">
                             <h2>Pridanie komentára</h2>
                             <form method="POST" action="/pridaj_komentar">
                                 @csrf

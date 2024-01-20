@@ -111,6 +111,92 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     } catch (e) {}
+
+    try {
+
+        document.getElementsByClassName('overlay_profilova_ikonka')[0].onclick = function() {
+            document.getElementById('imageUpload').click();
+        };
+
+        document.getElementById('imageUpload').onchange = function() {
+            var file = this.files[0];
+            var formData = new FormData();
+            formData.append('profileImage', file);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: '/uzivatel/nahraj_profilovku',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('.ikonka_profil_obrazok_kvoli_okamzitej_zmene').attr('src', '../' + response.success);
+                }
+            });
+        };
+    } catch (e) {}
+
+    try {
+        Array.from(document.getElementsByClassName('tlacitko_like_komentar')).forEach(function(tlacitko_like_komentar) {
+            tlacitko_like_komentar.onclick = function() {
+
+                var formData = new FormData();
+                formData.append('id_komentaru', tlacitko_like_komentar.getAttribute('data-comment-id'));
+
+                var pocty_likov = this.getElementsByClassName('pocet-likov')[0];
+                var pocet = parseInt(pocty_likov.innerText);
+                var liked = tlacitko_like_komentar.getAttribute('data-like');
+                var ikonkaSrdieckoElement = this.getElementsByClassName('ikonkaSrdiecko')[0];
+
+
+                if (liked) {
+                    pocty_likov.innerText = pocet - 1;
+                    tlacitko_like_komentar.setAttribute('data-like', '');
+                    $(ikonkaSrdieckoElement).css("color", "#3A3E4B");
+                } else {
+                    pocty_likov.innerText = pocet + 1;
+                    tlacitko_like_komentar.setAttribute('data-like', '1');
+                    $(ikonkaSrdieckoElement).css("color", "#FF9138");
+                }
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: '/pridaj_alebo_zrus_like_na_komentar',
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    error: function(response){
+                        if(response.status === 401){ // HTTP status 401 znamená "Neautorizované"
+                            alert('Musíte byť prihlásený');
+                        }
+                    }
+                });
+
+
+
+            };
+        });
+
+
+
+    } catch (e) {}
+
+
+
 });
 
 

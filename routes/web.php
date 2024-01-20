@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CestyController;
 use App\Http\Controllers\KomentareController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UzivateliaController;
 use Illuminate\Support\Facades\Route;
@@ -45,11 +46,9 @@ Route::post('/pridaj_komentar', [KomentareController::class, 'pridaj_komentar'])
 
 Route::get('/odstran_komentar/{id}', [KomentareController::class, 'odstran_komentar'])->name('pridaj_komentar');
 
+Route::post('/uzivatel/nahraj_profilovku', [ProfilController::class, 'nahrajProfilovku'])->name('nahraj-profilovku');
 
-
-
-
-
+Route::post('/pridaj_alebo_zrus_like_na_komentar', [LikeController::class, 'pridaj_alebo_zrus_like_na_komentar'])->name('pridaj_alebo_zrus_like_na_komentar');
 
 
 

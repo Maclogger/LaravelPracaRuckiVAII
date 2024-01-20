@@ -2,11 +2,7 @@
 
 
 @section('content')
-
-
-
-
-    <div id="popularne_cesty" class="container custom-container pt-5 pb-4">
+    <div id="popularne_cesty" class="container custom-container pt-5">
 
         <!-- Nadpis Sekcie -->
         <div class="row mb-4">
@@ -19,7 +15,16 @@
             <div class="row align-items-center custom-row pt-4 pb-4 h-100">
                 <div class="row user-info-container h-100">
                     <div class="col-3 h-100">
-                        <p class="meno_hore_vlavo_ostatni_uzivatelia normalheight"><i class="bi bi-person-circle"></i> {{ $uzivatel->meno }}</p>
+                        <a href="/TODO" class="btn">
+                            <div class="d-flex align-items-center">
+                                <div class="ikonka_profilovka_div">
+                                    <img class="rounded-circle me-4 ikonka_profilovka"
+                                         src="{{ $uzivatel->ikonka_url }}"
+                                         alt="avatar" width="40" height="40" />
+                                </div>
+                                <div class="text-hover">{{$uzivatel->meno}}</div>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-4 h-100">
@@ -44,11 +49,11 @@
                             <ul class="mt-5">
                                 @foreach($uzivatel->cesty as $cesta)
                                     <div class="container mt-3">
-                                        <div class="row polozka_cesta_container" onclick="redirectTo('/cesty/{{ $cesta->id }}')">
+                                        <div class="row polozka_cesta_container boxovy_shadow" onclick="redirectTo('/cesty/{{ $cesta->id }}')">
 
                                             <!-- Image Column -->
                                             <div class="col-lg-3 col-md-6 col-sm-12 d-flex align-items-center">
-                                                <img src="{{ $cesta->obrazok_url }}" class="img-fluid obrazok-cesty-ostatni">
+                                                <img src="{{ $cesta->obrazok_url }}" class="img-fluid obrazok-cesty-ostatni boxovy_shadow">
                                             </div>
 
                                             <!-- Name Column -->

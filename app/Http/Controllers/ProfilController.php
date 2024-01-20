@@ -13,7 +13,6 @@ class ProfilController extends Controller
         return view("uzivatelia.profil");
     }
 
-
     public function upravUdaje(Request $request) {
 
         // Získajte ID aktuálneho užívateľa
@@ -67,5 +66,32 @@ class ProfilController extends Controller
 
         // Presmerovanie s úspešnou správou
         return back()->with('status', 'Heslo bolo úspešne zmenené.');
+    }
+
+    public function nahrajProfilovku(Request $request)
+    {
+        $request->validate([
+            'profileImage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $obrazok = $request->file('profileImage');
+        $nazovSouboru = time().'.'.$obrazok->getClientOriginalExtension();
+        $urlObrazku = 'images/profilovky/' . $nazovSouboru;
+
+
+        $user = Auth::user();
+
+        if ($user->ikonka_url != 'images/profilovky/default.png') {
+            if (file_exists(public_path($user->ikonka_url))) {
+                unlink(public_path($user->ikonka_url));
+            }
+        }
+
+        $obrazok->move(public_path('images/profilovky/'), $nazovSouboru);
+
+        $user->ikonka_url = $urlObrazku;
+        $user->save();
+
+        return response()->json(['success'=>$urlObrazku]);
     }
 }

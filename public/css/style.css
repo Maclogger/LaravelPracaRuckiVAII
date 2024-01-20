@@ -52,6 +52,9 @@ nav {
     background-color: #3A3E4B;
 }
 
+.boxovy_shadow {
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
+}
 
 .prihlasenie_button {
     background-color: #FF9138;
@@ -59,17 +62,25 @@ nav {
     align-items: center; /* centruje obsah vertikálne */
     justify-content: center; /* centruje obsah horizontálne */
     border: none;
-    padding: 0.6rem 2rem 0.6rem 2.5rem;
+    padding: 0.6rem 0 0.6rem 0.8rem;
     text-decoration: none;
     color: white;
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }
 
-.prihlasenie_button:hover,
-.prihlasenie_button:hover .bi{
+.prihlasenie_button:hover {
     background-color: white;
     color: #FF9138;
 }
 
+.prihlasenie_button:hover .text-hover {
+    color: #FF9138;
+}
+
+.text-hover {
+    padding-left: 0;
+    font-weight: bold;
+}
 
 .navbar-toggler {
     border: 3px solid #FF9138;
@@ -187,16 +198,15 @@ nav {
 }
 
 .custom-img {
-    max-width: 100%;
-    height: auto;
     border-radius: 24px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }
 
 .testDiv {
-
     background-color: #fc3c3c;
     height: 10vh;
-
 }
 
 
@@ -264,6 +274,11 @@ nav {
 
 }
 
+
+.fixed-top {
+    box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.36);
+}
+
 .container-fluid {
     margin-right: 0;
     margin-left: 0;
@@ -283,7 +298,7 @@ footer {
 }
 
 .empty_div {
-    margin-top: 3rem;
+    margin-top: 8rem;
 }
 
 .registraciaDiv {
@@ -597,6 +612,8 @@ a {
     padding-left: 3rem;
     padding-right: 3rem;
     width: 100%;
+    border-radius: 16px;
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }
 
 .tlacitko_profilove:hover {
@@ -884,7 +901,9 @@ p {
     font-size: 1.2rem;
 }
 
-
+.textik13rem {
+    font-size: 1.3rem;
+}
 /* komentare pridanie */
 
 
@@ -915,15 +934,32 @@ textarea.active {
     border-color: #3A3E4B;
 }
 
-.ikonka_profilovka_div {
-    border-width: 10px;
-    border-color: black;
-    color:black;
+.ikonka_profilovka {
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }
 
-.ikonka_profilovka {
-    border-radius: 50%;
+.profilovka_komentar {
+    width: 65px;
+}
+
+
+/* for mobile and tablet */
+.ikonka_profil_obrazok_kvoli_okamzitej_zmene {
     box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
+}
+
+@media (max-width: 991px) {
+    .profilovy_obrazok {
+        width: 35%;
+        margin: 1rem;
+    }
+}
+
+/* for large screen */
+@media (min-width: 992px) {
+    .profilovy_obrazok {
+        width: 100%;
+    }
 }
 
 .admin-label {
@@ -941,4 +977,83 @@ textarea.active {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 100%;
+}
+
+.profile-image-container .overlay_profilova_ikonka {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #00000061;
+}
+
+.profile-image-container:hover .overlay_profilova_ikonka {
+    opacity: .75;
+}
+
+.profile-image-container .text {
+    color: #fff;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.ikonka_profilovka_div_profil {
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.prvy_riadok_profilove_inf {
+    font-size: 1.3rem;
+}
+
+.overlay_profilova_ikonka {
+    width: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: rgba(0, 0, 0, 0.83);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ikonka_profilovka_div_profil:hover .overlay_profilova_ikonka {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.profile-image-container .text {
+    color: #fff;
+    font-size: 16px;
+}
+
+textarea {
+    color: black;
+}
+
+textarea:active {
+    color: black;
+}
+
+
+.tlacitko_like_komentar {
+    cursor: pointer;
 }

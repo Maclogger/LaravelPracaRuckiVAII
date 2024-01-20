@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cesta;
 use App\Models\Komentar;
+use App\Models\LikeKomentara;
 use App\Models\Uzivatel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +41,8 @@ class CestyController extends Controller
             $autor = Uzivatel::findOrFail($komentar->id_autora);
             $komentar->url_obrazku_autora = $autor->ikonka_url;
             $komentar->meno_autora = $autor->meno;
+
+            $komentar->is_liked = LikeKomentara::where('id_komentaru', $komentar->id)->where('id_autora_liku', Auth::id())->exists();
         }
 
         $cesta->meno_autora = Uzivatel::findOrFail($cesta->author)->meno;
