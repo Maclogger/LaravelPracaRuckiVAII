@@ -5,7 +5,7 @@
     <div id="popularne_cesty" class="container custom-container pt-5">
 
         @auth
-        <a href="/pridanie_cesty" class="floating-button_add">
+        <a href="/pridanie_cesty" class="floating-button_add boxovy_shadow">
             <i class="bi bi-plus"></i>
         </a>
         @endauth

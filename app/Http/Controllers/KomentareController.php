@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Komentar;
+use App\Models\LikeKomentara;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\KomentareLiky; // include KomentareLiky model
 
 class KomentareController extends Controller
 {
@@ -13,7 +15,7 @@ class KomentareController extends Controller
 
         // Validácia vstupných dát
         $validatedData = $request->validate([
-            'text' => 'required|string|max:10000', // Text komentáru, je povinný a môže max. 10 000 znakov
+            'text' => 'required|string|max:10000', // Text komentáru, je povinný a môže mať max. 10 000 znakov
             'id_cesty' => 'required|exists:cesty,id',
         ]);
 
@@ -31,11 +33,15 @@ class KomentareController extends Controller
     }
 
 
+
     public function odstran_komentar($id)
     {
         $komentar = Komentar::find($id);
 
         if ($komentar) {
+            // zmazania záznamov z tabuľky M:N liky najprv
+            LikeKomentara::where('id_komentaru', $id)->delete();
+
             $komentar->delete();
             return redirect()->back()->with('status', 'Komentár bol úspešne odstránený.');
         } else {

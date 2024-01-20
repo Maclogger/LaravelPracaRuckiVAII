@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Vymazanie obsahu tabuliek
+        DB::table('liky_komentare')->delete();
         DB::table('komentare')->delete();
         DB::table('cesty')->delete();
         DB::table('uzivatelia')->delete();
@@ -26,7 +27,7 @@ class DatabaseSeeder extends Seeder
                 'priezvisko' => 'Rucki',
                 'email' => 'ruckim70@gmail.com',
                 'heslo' => '$2y$12$p3bpOi7e3s9Kk.nUhtljpOJJb5PEJFjA0jXDBWdZJ9ffvKqhttT/e',
-                'ikonka_url' => 'images/profilovky/1.jpg',
+                'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
                 'created_at' => '2024-01-18 20:54:04',
                 'updated_at' => '2024-01-18 20:54:04',
@@ -37,7 +38,7 @@ class DatabaseSeeder extends Seeder
                 'priezvisko' => 'Kováčik',
                 'email' => 'jano@gmail.com',
                 'heslo' => '$2y$12$SojwNVR6VC6c51auMJAWouvqNUJ.dZ/rp48f6O1t58ELLRj45ltme',
-                'ikonka_url' => 'images/profilovky/2.jpg',
+                'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
                 'created_at' => '2024-01-18 20:59:07',
                 'updated_at' => '2024-01-18 20:59:07',
@@ -48,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 'priezvisko' => 'Novák',
                 'email' => 'petonovak@gmail.com',
                 'heslo' => '$2y$12$qBckdZE7HsIzlYPORs2Wbe9tOgBr7BjSOKEx83YirmaK/47l8kgIW',
-                'ikonka_url' => 'images/profilovky/3.jpeg',
+                'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
                 'created_at' => '2024-01-18 20:59:29',
                 'updated_at' => '2024-01-18 20:59:29',
@@ -59,7 +60,7 @@ class DatabaseSeeder extends Seeder
                 'priezvisko' => 'Horváth',
                 'email' => 'lukas@gmail.com',
                 'heslo' => '$2y$12$.xjLau21aZTfwPQMdYHjmewesVbSHQAMP9iHLkoac05mfE2HfDo1S',
-                'ikonka_url' => 'images/profilovky/4.jpg',
+                'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
                 'created_at' => '2024-01-18 21:11:06',
                 'updated_at' => '2024-01-18 21:11:06',
@@ -317,6 +318,15 @@ class DatabaseSeeder extends Seeder
                 'pocet_likov' => 0,
                 'created_at' => '2024-01-18 21:24:46',
                 'updated_at' => '2024-01-18 21:24:46',
+            ],
+            [
+                'id' => 19,
+                'id_cesty' => 4,
+                'id_autora' => 6,
+                'text' => 'Áno touto cestou chodím často. Je vhodná pre všetky typy áut. Nízky podvozok nie je problém, cesta je krásna a hladká. Odporúčam.',
+                'pocet_likov' => 0,
+                'created_at' => '2024-01-20 02:42:46',
+                'updated_at' => '2024-01-20 02:42:46',
             ],
         ]);
     }

@@ -52,9 +52,7 @@ nav {
     background-color: #3A3E4B;
 }
 
-.boxovy_shadow {
-    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
-}
+
 
 .prihlasenie_button {
     background-color: #FF9138;
@@ -1056,4 +1054,10 @@ textarea:active {
 
 .tlacitko_like_komentar {
     cursor: pointer;
+}
+
+
+
+.boxovy_shadow {
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.36);
 }

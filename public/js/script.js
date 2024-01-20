@@ -155,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 var liked = tlacitko_like_komentar.getAttribute('data-like');
                 var ikonkaSrdieckoElement = this.getElementsByClassName('ikonkaSrdiecko')[0];
 
-
                 if (liked) {
                     pocty_likov.innerText = pocet - 1;
                     tlacitko_like_komentar.setAttribute('data-like', '');
@@ -185,18 +184,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }
                 });
-
-
-
             };
         });
-
-
-
     } catch (e) {}
-
-
-
 });
 
 
