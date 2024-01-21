@@ -1165,3 +1165,7 @@ textarea:active {
 .form-control option:checked {
     color: black; /* Môžete zmeniť farbu podľa svojich preferencií */
 }
+
+.background_color_druhy {
+    background-color: #2b3944;
+}

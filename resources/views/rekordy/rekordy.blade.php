@@ -8,7 +8,7 @@
 
     <div id="popularne_cesty" class="container custom-container pt-5">
 
-        <div class="card w-100 pridanie_rekordu_div boxovy_shadow mb-5">
+        <div class="card w-100 pridanie_rekordu_div boxovy_shadow mb-5 background_color_druhy">
             <h2 class="mb-3">Pridanie rekordu</h2>
             <form method="POST" action="/pridaj_rekord">
                 @csrf
