@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -349,6 +350,34 @@ class DatabaseSeeder extends Seeder
                 'pocet_likov' => 0,
                 'created_at' => '2024-01-20 02:42:46',
                 'updated_at' => '2024-01-20 02:42:46',
+            ],
+        ]);
+
+
+        DB::table('rekordy')->insert([
+            [
+                'id' => 1,
+                'id_autora_rekordu' => 1,
+                'id_cesty' => 1,
+                'cas' => Carbon::createFromTime(0, 15,34),
+            ],
+            [
+                'id' => 2,
+                'id_autora_rekordu' => 1,
+                'id_cesty' => 1,
+                'cas' => Carbon::createFromTime(0, 14,48),
+            ],
+            [
+                'id' => 3,
+                'id_autora_rekordu' => 3,
+                'id_cesty' => 1,
+                'cas' => Carbon::createFromTime(0, 19,20),
+            ],
+            [
+                'id' => 4,
+                'id_autora_rekordu' => 6,
+                'id_cesty' => 3,
+                'cas' => Carbon::createFromTime(1, 10,10),
             ],
         ]);
     }

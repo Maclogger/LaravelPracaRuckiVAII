@@ -7,6 +7,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\KomentareController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\RekordController;
 use App\Http\Controllers\UzivateliaController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,11 +47,12 @@ Route::post('/uzivatel/nahraj_profilovku', [ProfilController::class, 'nahrajProf
 
 Route::post('/pridaj_alebo_zrus_like_na_komentar', [LikeController::class, 'pridaj_alebo_zrus_like_na_komentar'])->name('pridaj_alebo_zrus_like_na_komentar');
 
-Route::get('/chaty', [ChatController::class, 'index'])->name('chat.chaty');
+Route::get('/rekordy', [RekordController::class, 'index'])->name('rekordy.rekordy');
 
 Route::post('/pridaj_link_mapy', [CestyController::class, 'pridaj_link_mapy'])->name('cesty.pridaj_link_mapy');
 
 Route::get('/zmazat_svoj_profil', [ProfilController::class, 'zmazSa'])->name('zmazat_svoj_profil');
 
+Route::post('/pridaj_rekord', [RekordController::class, 'pridaj_rekord'])->name('pridaj_rekord');
 
-
+Route::get("zmazat_rekord/{id}", [RekordController::class, 'zmaz_rekord'])->name('zmaz_rekord');

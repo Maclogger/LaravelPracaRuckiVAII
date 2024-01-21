@@ -840,6 +840,18 @@ a {
     font-size: 1.8rem;
 }
 
+.zmazat_rekord_tlacitko {
+    color: white;
+    background-color: #3A3E4B;
+    padding: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.zmazat_rekord_tlacitko:hover {
+    background-color: #FF9138;
+    transition: background-color 0.3s;
+}
+
 
 .odkaz_na_cestu_ostatni_uzivatelia {
     color: white;
@@ -906,6 +918,13 @@ p {
 
 
 .pridanie_komentara_div {
+    background-color: #3A3E4B;
+    border-radius: 24px;
+    color: white;
+    padding: 2rem;
+}
+
+.pridanie_rekordu_div {
     background-color: #3A3E4B;
     border-radius: 24px;
     color: white;
@@ -1125,7 +1144,24 @@ textarea:active {
     background-color: white;
     color: #FF9138;
     transition: color 0.3s, background-color 0.3s ease;
-
 }
 
+.obrazok_cesty_maly {
+    width: 10rem;
+}
 
+.div_cesty_rekordy {
+    background-color: #3A3E4B;
+    padding: 0 1.3rem 0 0;
+    transition: color 0.3s, background-color 0.3s ease;
+}
+
+.div_cesty_rekordy:hover {
+    background-color: #FF9138;
+    transition: color 0.3s, background-color 0.3s ease;
+}
+
+.form-control option,
+.form-control option:checked {
+    color: black; /* Môžete zmeniť farbu podľa svojich preferencií */
+}

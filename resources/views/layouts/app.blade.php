@@ -38,7 +38,7 @@
                         <a href="{{ route('uzivatelia.ostatni_uzivatelia') }}" class="nav-link border-hover py-3 text-white">Ostatní užívatelia</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('chat.chaty') }}" class="nav-link border-hover py-3 text-white">Chaty</a>
+                        <a href="{{ route('rekordy.rekordy') }}" class="nav-link border-hover py-3 text-white">Rekordy</a>
                     </li>
                     @guest
                     <li class="nav-item">
