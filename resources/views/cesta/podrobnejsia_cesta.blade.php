@@ -88,11 +88,22 @@
                         Vložte Link Mapy:
                         <input type="hidden" name="id_cesty" value="{{$cesta->id}}">
                         <label for="link_mapy"></label>
-                        <textarea id="link_mapy" name="link_mapy" rows="2" class="textarea_mapy_link boxovy_shadow" required></textarea>
+                        <textarea id="link_mapy" name="link_mapy" rows="2" class="textarea_mapy_link boxovy_shadow me-4"></textarea>
+
+                        <div class="d-flex" style="white-space: nowrap;">
+                            <label for="top_cesta"></label>
+                            <p class="me-2">TOP cesta?</p>
+                            <input type="hidden" name="top_cesta" value="0">
+                            <input type="checkbox" id="top_cesta" name="top_cesta" class="me-4" {{ $cesta->popularna_cesta ? 'checked' : '' }} value="1">
+                        </div>
+
+
                         <input type="submit" class="tlacitko_odoslat_link_mapy boxovy_shadow" value="Odoslať">
                     </div>
                 </form>
             </div>
+
+
         @endif
     </div>
 

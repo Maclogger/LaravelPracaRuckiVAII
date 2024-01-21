@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+    @auth
     <!-- Nadpis Sekcie -->
     <div class="row">
         <div class="col">
@@ -17,6 +17,15 @@
             @endcomponent
         @endforeach
     </div>
+    @endauth
+
+    @guest
+        <div class="alert alert-danger">
+            <ul class="error_ul">
+                <li class="error_li"><i class="bi bi-exclamation-octagon-fill"></i> Bohužiaľ najprv, sa musíte prihlásiť.</li>
+            </ul>
+        </div>
+    @endguest
 
 
 @endsection

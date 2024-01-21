@@ -14,6 +14,10 @@ class ProfilController extends Controller
     }
 
     public function upravUdaje(Request $request) {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
+
 
         // Získajte ID aktuálneho užívateľa
         $userId = Auth::id();
@@ -48,6 +52,11 @@ class ProfilController extends Controller
     }
 
     public function zmenHeslo(Request $request) {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
+
+
         // Validácia dát
         $validatedData = $request->validate([
             'stareHeslo' => 'required',
@@ -70,6 +79,11 @@ class ProfilController extends Controller
 
     public function nahrajProfilovku(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
+
+
         $request->validate([
             'profileImage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);

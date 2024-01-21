@@ -32,9 +32,9 @@ class RekordController extends Controller
 
         $validated = $request->validate([
             'id_cesty' => 'required|exists:cesty,id',
-            'hodiny' => 'required',
-            'minuty' => 'required',
-            'sekundy' => 'required',
+            'hodiny' => 'required|numeric|min:0|max:23',
+            'minuty' => 'required|numeric|min:0|max:59',
+            'sekundy' => 'required|numeric|min:0|max:59',
         ]);
 
         $rekord = new Rekord();
@@ -48,6 +48,10 @@ class RekordController extends Controller
 
     public function zmaz_rekord($id)
     {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
+
         $rekord = Rekord::all()->where('id', $id)->first();
 
         if (!$rekord) {

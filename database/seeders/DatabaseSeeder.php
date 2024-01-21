@@ -20,22 +20,6 @@ class DatabaseSeeder extends Seeder
         DB::table('komentare')->delete();
         DB::table('cesty')->delete();
         DB::table('uzivatelia')->delete();
-        DB::table('role')->delete();
-
-        DB::table('role')->insert([
-            [
-                'id' => 1,
-                'nazov_role' => 'ADMIN',
-                'created_at' => '2024-01-18 20:54:04',
-                'updated_at' => '2024-01-18 20:54:04',
-            ],
-            [
-                'id' => 2,
-                'nazov_role' => 'STANDARD',
-                'created_at' => '2024-01-18 20:54:04',
-                'updated_at' => '2024-01-18 20:54:04',
-            ],
-        ]);
 
         DB::table('uzivatelia')->insert([
             [
@@ -43,10 +27,10 @@ class DatabaseSeeder extends Seeder
                 'meno' => 'Marek',
                 'priezvisko' => 'Rucki',
                 'email' => 'ruckim70@gmail.com',
-                'heslo' => '$2y$12$p3bpOi7e3s9Kk.nUhtljpOJJb5PEJFjA0jXDBWdZJ9ffvKqhttT/e',
+                'heslo' => '$2y$12$nGqfcycZYS5FQdODpdiYrenhf3WkVhQDpV1ggOZTLzu0w3tzsgDkS',
                 'ikonka_url' => 'images/profilovky/default.png',
                 'remember_token' => Str::random(10),
-                'rola' => 1,
+                'rola' => 2,
                 'created_at' => '2024-01-18 20:54:04',
                 'updated_at' => '2024-01-18 20:54:04',
             ],
@@ -109,6 +93,18 @@ class DatabaseSeeder extends Seeder
                 'rola' => 2,
                 'created_at' => '2024-01-18 21:11:27',
                 'updated_at' => '2024-01-18 21:11:27',
+            ],
+            [
+                'id' => 7,
+                'meno' => 'ADMIN',
+                'priezvisko' => 'ADMIN',
+                'email' => 'admin@topcesty.sk',
+                'heslo' => '$2y$12$I8FPibwu3qs2P9kmUEEn2.oa99V9FBaFpcqPQAmjvvMYw5LXUWmMG',
+                'ikonka_url' => 'images/profilovky/default.png',
+                'remember_token' => Str::random(10),
+                'rola' => 1,
+                'created_at' => '2024-01-18 20:54:04',
+                'updated_at' => '2024-01-18 20:54:04',
             ],
         ]);
 

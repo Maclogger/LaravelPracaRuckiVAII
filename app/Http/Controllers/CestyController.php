@@ -54,6 +54,9 @@ class CestyController extends Controller
     }
 
     public function pridaj_cestu(Request $request) {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
 
         // Validácia vstupných dát
         $validatedData = $request->validate([
@@ -134,6 +137,10 @@ class CestyController extends Controller
     }
 
     public function odstran_cestu($id) {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
+
         $cesta = Cesta::find($id);
         // Kontrola, či cesta existuje
         if (!$cesta) {
@@ -153,10 +160,21 @@ class CestyController extends Controller
 
     public function pridaj_link_mapy(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
+        if (!Auth::user()->jeAdmin()) {
+            return redirect()->back()->withErrors(["error", "Pridávať link na mapu môže iba ADMIN!"]);
+        }
+
+
         $validated = $request->validate([
             'id_cesty' => 'required|exists:cesty,id',
-            'link_mapy' => 'required|max:100000',
+            'link_mapy' => 'max:100000',
+            'top_cesta' => 'required|boolean'
         ]);
+
+
 
         // ak zadá priamo celý link admin z googlu a nie len link.
         if (str_starts_with($validated['link_mapy'], '<iframe src="')) {
@@ -167,7 +185,10 @@ class CestyController extends Controller
 
         $cesta = Cesta::find($validated['id_cesty']);
 
-        $cesta->mapa = $validated['link_mapy'];
+        if ($validated['link_mapy']) {
+            $cesta->mapa = $validated['link_mapy'];
+        }
+        $cesta->popularna_cesta = $validated['top_cesta'];
         $cesta->save();
 
         return redirect()->back()->with('status', 'Mapa bola úspešne zmenená.');

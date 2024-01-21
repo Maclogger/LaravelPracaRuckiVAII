@@ -1169,3 +1169,9 @@ textarea:active {
 .background_color_druhy {
     background-color: #2b3944;
 }
+
+#top_cesta {
+    transform: scale(1.5);
+}
+
+

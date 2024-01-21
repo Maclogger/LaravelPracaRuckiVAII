@@ -89,7 +89,7 @@
 
                     @if(Auth::check() and Auth::user()->id == $rekord->id_autora_rekordu)
                         <div class="h-100">
-                            <a href="zmazat_rekord/{{$rekord->id}}" class="normalheight zmazat_rekord_tlacitko zaobleneRohy">Zmazať</a>
+                            <a href="zmazat_rekord/{{$rekord->id}}" onclick="return potvrditMazanie('Naozaj chcete zmazať tento rekord?');" class="normalheight zmazat_rekord_tlacitko zaobleneRohy">Zmazať</a>
                         </div>
                     @endif
 

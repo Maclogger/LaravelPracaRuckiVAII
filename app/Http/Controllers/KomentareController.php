@@ -12,6 +12,9 @@ class KomentareController extends Controller
 {
     public function pridaj_komentar(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
 
 
         // Validácia vstupných dát
@@ -35,7 +38,16 @@ class KomentareController extends Controller
 
     public function odstran_komentar($id)
     {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors(["error", 'Musíte byť prihlásený!']);
+        }
+
+
         $komentar = Komentar::find($id);
+
+        if (Auth::user()->id != $komentar->id_autora) {
+            return redirect()->back()->withErrors(["error", 'Nie ste autorom tohto komentáru!']);
+        }
 
         if ($komentar) {
             // zmazania záznamov z tabuľky M:N liky najprv
