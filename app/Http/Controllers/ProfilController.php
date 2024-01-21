@@ -94,4 +94,13 @@ class ProfilController extends Controller
 
         return response()->json(['success'=>$urlObrazku]);
     }
+
+    public function zmazSa()
+    {
+        if (Auth::check()) {
+            Auth::user()->delete();
+            return redirect("/")->with('status', 'Váš účet bol oficiálne zmazaný.');
+        }
+        return redirect()->back()->with('status', "Musíte byť prihlásený.");
+    }
 }

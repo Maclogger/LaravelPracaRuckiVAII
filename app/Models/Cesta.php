@@ -30,5 +30,4 @@ class Cesta extends Model
     protected $guarded = [
         "id"
     ];
-
 }

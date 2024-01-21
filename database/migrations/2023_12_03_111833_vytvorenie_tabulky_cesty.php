@@ -24,7 +24,7 @@ return new class extends Migration
             $table->boolean('popularna_cesta');
             $table->text('mapa')->nullable();
             $table->unsignedBigInteger('author')->nullable();
-            $table->foreign('author')->references('id')->on('uzivatelia')->onDelete('set null');
+            $table->foreign('author')->references('id')->on('uzivatelia')->onDelete('cascade');;
             $table->timestamps();
         });
     }

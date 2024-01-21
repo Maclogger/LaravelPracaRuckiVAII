@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_komentaru');
             $table->timestamps();
             // Definovanie cudzích kľúčov
-            $table->foreign('id_autora_liku')->references('id')->on('uzivatelia');
-            $table->foreign('id_komentaru')->references('id')->on('komentare');
+            $table->foreign('id_autora_liku')->references('id')->on('uzivatelia')->onDelete('cascade');
+            $table->foreign('id_komentaru')->references('id')->on('komentare')->onDelete('cascade');
 
             $table->primary(['id_autora_liku', 'id_komentaru']);
         });

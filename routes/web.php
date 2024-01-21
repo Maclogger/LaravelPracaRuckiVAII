@@ -50,7 +50,7 @@ Route::get('/chaty', [ChatController::class, 'index'])->name('chat.chaty');
 
 Route::post('/pridaj_link_mapy', [CestyController::class, 'pridaj_link_mapy'])->name('cesty.pridaj_link_mapy');
 
-
+Route::get('/zmazat_svoj_profil', [ProfilController::class, 'zmazSa'])->name('zmazat_svoj_profil');
 
 
 

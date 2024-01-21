@@ -20,8 +20,8 @@ return new class extends Migration
             $table->timestamps();
 
             // Definovanie cudzích kľúčov
-            $table->foreign('id_cesty')->references('id')->on('cesty');
-            $table->foreign('id_autora')->references('id')->on('uzivatelia');
+            $table->foreign('id_cesty')->references('id')->on('cesty')->onDelete('cascade');
+            $table->foreign('id_autora')->references('id')->on('uzivatelia')->onDelete('cascade');
         });
     }
 

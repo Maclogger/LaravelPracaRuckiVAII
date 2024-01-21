@@ -8,6 +8,7 @@ use App\Models\LikeKomentara;
 use App\Models\Uzivatel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class CestyController extends Controller
@@ -138,12 +139,14 @@ class CestyController extends Controller
         if (!$cesta) {
             return redirect()->back()->withErrors(['error' => 'Cesta nenájdená.']);
         }
-        // Kontrola oprávnení - príklad, zmeniť podľa potreby
+        // Kontrola, či prihlásený užívateľ je aj autorom cesty
         if (Auth::id() !== $cesta->author) {
             return redirect()->back()->withErrors(['error' => 'Nemáte oprávnenie odstrániť túto cestu.']);
         }
-        // Odstránenie cesty
+
+        // zmazanie
         $cesta->delete();
+
         // Presmerovanie s oznámením o úspechu
         return redirect()->back()->with('status', 'Cesta bola úspešne odstránená.');
     }

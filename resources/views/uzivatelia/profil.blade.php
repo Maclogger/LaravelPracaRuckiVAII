@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @auth
 @section('content')
-
-
-
     <section id="sekcia_profilove_informacie">
         <div class="row moj_row">
             <div class="row justify-content-center mt-4 moj_row">
@@ -14,7 +11,7 @@
                             <p><strong>Meno:</strong> {{ Auth::user()->meno }} {{ Auth::user()->priezvisko }}</p>
                             <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
                             <p><strong>Dátum registrácie:</strong> {{ Auth::user()->created_at }}</p>
-                            <p><strong>Rola: </strong> {{ Auth::user()->rola_nazov() }}</p>
+                            <p><strong>Rola:</strong> {{ Auth::user()->rola_nazov() }}</p>
                         </div>
                         <div class="col-lg-3">
                             <div class="ikonka_profilovka_div_profil">
@@ -62,8 +59,12 @@
                         </div>
 
                         <button type="submit" class="btn mt-3 tlacitko_profilove tlacitko_editacia">Uložiť údaje</button>
+                        <a href="/zmazat_svoj_profil" class="btn mt-3 tlacitko_profilove tlacitko_editacia"
+                           onclick="return potvrditMazanie('Naozaj chcete zmazať celý svoj profil? Je to nezvratné!');">Zmazať svoj profil</a>
                         <span class="close_profilove_informacie_js btn mt-3 tlacitko_profilove tlacitko_editacia">Zrušiť</span>
                     </form>
+
+
                 </div>
             </div>
         </div>
